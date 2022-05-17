@@ -1,0 +1,23 @@
+.hero {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: center;
+  background-size: cover;
+  text-align: justify;
+
+  .hero-container {
+
+    >p,
+    h1,
+    .btn {
+      color: #85bb65;
+      font-weight: bold;
+      margin-right: 11px
+    }
+
+    border-radius: 8px;
+    padding: 30px;
+  }
+}
