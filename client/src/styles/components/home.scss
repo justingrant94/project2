@@ -1,11 +1,12 @@
 .hero {
   flex-grow: 1;
-  display: flex;
+  // display: flex;
   align-items: center;
-  justify-content: center;
-  position: center;
-  background-size: cover;
+  // justify-content: center;
+
   text-align: justify;
+  display: inline-block;
+  width: 100%;
 
   .hero-container {
 

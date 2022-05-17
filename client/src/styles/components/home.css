@@ -1,0 +1,25 @@
+.hero {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: justify;
+  display: inline-block;
+  width: 100%;
+}
+
+.hero .hero-container {
+  border-radius: 8px;
+  padding: 30px;
+}
+
+.hero .hero-container > p,
+.hero .hero-container h1,
+.hero .hero-container .btn {
+  color: #85bb65;
+  font-weight: bold;
+  margin-right: 11px;
+}
+/*# sourceMappingURL=home.css.map */
