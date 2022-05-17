@@ -8,6 +8,12 @@ import PageNavbar from './components/default/PageNavbar'
 import Home from './components/Home'
 import NotFound from './components/default/NotFound'
 
+//Auth Components
+import Register from './components/Register'
+import Login from './components/Login'
+
+
+
 
 const App = () => {
 
@@ -21,12 +27,10 @@ const App = () => {
 
 
           {/* Auth routes - starting with register */}
-          {/* <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} /> */}
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
 
           <Route path="*" element={<NotFound />} />
-
-
         </Routes>
       </BrowserRouter>
     </main>
