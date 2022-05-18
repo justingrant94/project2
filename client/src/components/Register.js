@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+
 const Register = () => {
 
   const navigate = useNavigate()
@@ -37,30 +40,35 @@ const Register = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Register</h2>
-      <div className='record'>
-        <label htmlFor="username">Username</label>
-        <input type="text" name="username" className='input' placeholder='Username' value={formData.username} onChange={handleChange} />
-        {errors.username && <p className='text-danger'>{errors.username}</p>}
-      </div>
-      <div className='record'>
-        <label htmlFor="email">Email</label>
-        <input type="email" name="email" className='input' placeholder='Email' value={formData.email} onChange={handleChange} />
-        {errors.email && <p className='text-danger'>{errors.email}</p>}
-      </div>
-      <div className='record'>
-        <label htmlFor="password">Password</label>
-        <input type="password" name="password" className='input' placeholder='Password' value={formData.password} onChange={handleChange} />
-        {errors.password && <p className='text-danger'>{errors.password}</p>}
-      </div>
-      <div className='record'>
-        <label htmlFor="passwordConfirmation">Password Confirmation</label>
-        <input type="password" name="passwordConfirmation" className='input' placeholder='Password Confirmation' value={formData.passwordConfirmation} onChange={handleChange} />
-        {errors.passwordConfirmation && <p className='text-danger'>{errors.passwordConfirmation}</p>}
-      </div>
-      <button type="submit" className="button">Register</button>
-    </form>
+    <section className="form-page">
+      <Container>
+        <Row>
+          <form className='col-8 offset-5 col-lg-8 offset-md-2 col-lg-6 offset-lg-3 mt-4' onSubmit={handleSubmit}>
+            <h1>R e g i s t er</h1>
+            <h2>Sign up to compare<br />
+              yourself to the 1% </h2>
+            {/* Username */}
+            {/* <label htmlFor="username">Username</label> */}
+            <input type="text" name="username" className='input' placeholder='Username' value={formData.username} onChange={handleChange} />
+            {errors.username && <p className='text-danger'>{errors.username}</p>}
+            {/* Email */}
+            {/* <label htmlFor="email">Email</label> */}
+            <input type="email" name="email" className='input' placeholder='Email' value={formData.email} onChange={handleChange} />
+            {errors.email && <p className='text-danger'>{errors.email}</p>}
+            {/* Password */}
+            {/* <label htmlFor="password">Password</label> */}
+            <input type="password" name="password" className='input' placeholder='Password' value={formData.password} onChange={handleChange} />
+            {errors.password && <p className='text-danger'>{errors.password}</p>}
+            {/* Password Confirmation */}
+            {/* <label htmlFor="passwordConfirmation">Password Confirmation</label> */}
+            <input type="password" name="passwordConfirmation" className='input' placeholder='Password Confirmation' value={formData.passwordConfirmation} onChange={handleChange} />
+            {errors.passwordConfirmation && <p className='text-danger'>{errors.passwordConfirmation}</p>}
+            {/* Submit */}
+            <button type="submit" className="btn btn-success w-100 mt-4">R e g i s t e r  🤑</button>
+          </form>
+        </Row>
+      </Container>
+    </section>
   )
 }
 

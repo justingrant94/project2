@@ -5,7 +5,7 @@ import mongoose from 'mongoose'
 
 const MONGODB_CONNECTION_STRING = 'mongodb://127.0.0.1:27017/worthy'
 
-const PORT = 5000
+const PORT = 5010
 
 const startServer = async () => {
 
