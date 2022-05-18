@@ -18,6 +18,18 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
 })
 
+// Removing the password from the Json Object
+//Using the transform methog which is predefined by mongoose to transform the data that is being converted into json
+// Transform method passes 2 parameters, first being the document itseld which we dont want to update
+userSchema.set('toJSON', {
+  transform(_doc, json){
+    //Second parameter is the json object that is due to be sent back to the user
+    // We want to remove the password from it
+    delete json.password
+    return json
+  }
+})
+
 userSchema
   .virtual('passwordConfirmation')
   .set(function(value){

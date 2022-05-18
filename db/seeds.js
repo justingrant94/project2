@@ -2,6 +2,8 @@ import mongoose from "mongoose"
 import Items from '../models/items.js'
 import { MONGODB_CONNECTION_STRING } from "../config/enviroment.js"
 import itemsData from './data/items.js'
+import userData from './data/users.js'
+import User from '../models/users.js'
 
 
 const seedDatabase = async () => {
@@ -14,9 +16,19 @@ const seedDatabase = async () => {
     await mongoose.connection.db.dropDatabase()
     console.log('Dropdatabase')
 
+    //Add the users
+    const usersAdded = await User.create(userData)
+    console.log('usersAdded ->', usersAdded)
+
+    //Items that have owners NEED TO DOUBLE CHECK THIS!!!!!!!!
+    const itemsWithOwners = itemsData.map(item => {
+      return { ...item, owner: usersAdded[0]._id}
+    })
+    console.log('items ->', itemsData)
+
 
     // Add seed data back in
-    const itemsAdded = await Items.create(itemsData)
+    const itemsAdded = await Items.create(itemsWithOwners)
     console.log(`🌿 Database seeded with ${itemsAdded} items`)
   
     //Close the connection to the database

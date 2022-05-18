@@ -9,7 +9,7 @@ export const showItems = async (req, res) => {
 export const getOneItem = async (req, res) => {
   const { id } = req.params
   try {
-    const item = await Items.findById(id)
+    const item = await Items.findById(id).populate('owner')
     if (!item) {
       return res.status(404).json({ message: 'Item not found'})
     }
