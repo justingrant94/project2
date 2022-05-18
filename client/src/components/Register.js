@@ -44,7 +44,7 @@ const Register = () => {
       <Container>
         <Row>
           <form className='col-8 offset-5 col-lg-8 offset-md-2 col-lg-6 offset-lg-3 mt-4' onSubmit={handleSubmit}>
-            <h1>R e g i s t er</h1>
+            <h1>Register</h1>
             <h2>Sign up to compare<br />
               yourself to the 1% </h2>
             {/* Username */}
@@ -72,7 +72,7 @@ const Register = () => {
             <input type="password" name="passwordConfirmation" className='input' placeholder='Password Confirmation' value={formData.passwordConfirmation} onChange={handleChange} />
             {errors.passwordConfirmation && <p className='text-danger'>{errors.passwordConfirmation}</p>}
             {/* Submit */}
-            <button type="submit" className="btn btn-success w-100 mt-4">R e g i s t e r  🤑</button>
+            <button type="submit" className="btn btn-success w-100 mt-4">Register  🤑</button>
           </form>
         </Row>
       </Container>

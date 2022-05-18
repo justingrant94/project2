@@ -35,6 +35,11 @@ const startServer = async () => {
   return res.status(200).json(addedItem)
   })
 
+  // app.post('/items', async (req, res) => {
+  //   const { body: newListOfItems } = req
+  //   newListOfItems.forEach(item => await Items.create(item))
+  //   return res.status(200).json(newListOfItems)
+  //   })
 
   await mongoose.connect(MONGODB_CONNECTION_STRING)
   console.log('Connected to MongoDB')
