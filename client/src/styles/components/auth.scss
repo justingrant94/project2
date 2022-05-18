@@ -2,7 +2,6 @@
   flex-grow: 1;
   // background-color: $bg-grey;
 
-
   form {
     border-radius: 8px;
     background: white;
@@ -12,11 +11,11 @@
     h1 {
       font-size: 1.6rem;
       text-align: center;
-      color: #85bb65;
+      color: $main-text-colour;
     }
 
     h2 {
-      color: #85bb65;
+      color: $main-text-colour;
       font-weight: bold;
       margin-right: 11px;
       font-size: small;
