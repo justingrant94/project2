@@ -1,12 +1,9 @@
 .hero {
   flex-grow: 1;
-  // display: flex;
+  display: flex;
   align-items: center;
-  // justify-content: center;
-
-  text-align: justify;
-  display: inline-block;
-  width: 100%;
+  justify-content: center;
+  height: 100vh;
 
   .hero-container {
 
@@ -15,10 +12,10 @@
     .btn {
       color: #85bb65;
       font-weight: bold;
-      margin-right: 11px
+      margin-right: 11px;
     }
 
-    border-radius: 8px;
     padding: 30px;
+    border-radius: 30px;
   }
 }

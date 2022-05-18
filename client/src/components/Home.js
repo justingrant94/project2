@@ -7,6 +7,7 @@ const Home = () => {
     <div className='hero text-center'>
       <div className='hero-container bg-light'>
         <h1 className='display-3'>Worth-y 💶 </h1>
+        <hr className='my-3' />
         <p className='lead'>Compare any of your favourite <br />
           (or least favourite) <br />
           people in the world</p>
