@@ -20,9 +20,10 @@ const App = () => {
   return (
     <main className='site-wrapper'>
       <BrowserRouter>
-        {/* <PageNavbar /> */}
+        <PageNavbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          {/* <PageNavbar /> */}
 
 
 

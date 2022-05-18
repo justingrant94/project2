@@ -11,8 +11,8 @@ const Home = () => {
         <p className='lead'>Compare any of your favourite <br />
           (or least favourite) <br />
           people in the world</p>
-        <Link to='/register' className='btn btn-success'>Register</Link>
-        <Link to='/login' className='btn btn-success'>Login</Link>
+        <Link to='/register' className='btn btn-success'>R e g i s t er</Link>
+        <Link to='/login' className='btn btn-success'>L o g i n</Link>
       </div>
     </div>
   )

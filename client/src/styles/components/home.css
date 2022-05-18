@@ -26,4 +26,8 @@
   font-weight: bold;
   margin-right: 11px;
 }
+
+.hiding {
+  display: none !important;
+}
 /*# sourceMappingURL=home.css.map */
