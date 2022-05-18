@@ -49,12 +49,20 @@ const Register = () => {
               yourself to the 1% </h2>
             {/* Username */}
             {/* <label htmlFor="username">Username</label> */}
-            <input type="text" name="username" className='input' placeholder='Username' value={formData.username} onChange={handleChange} />
-            {errors.username && <p className='text-danger'>{errors.username}</p>}
+            <input type="text" name="name" className='input' placeholder='Name' value={formData.name} onChange={handleChange} />
+            {errors.name && <p className='text-danger'>{errors.name}</p>}
             {/* Email */}
             {/* <label htmlFor="email">Email</label> */}
             <input type="email" name="email" className='input' placeholder='Email' value={formData.email} onChange={handleChange} />
             {errors.email && <p className='text-danger'>{errors.email}</p>}
+
+            <input type="text" name="salary" className='input' placeholder='Salary' value={formData.salary} onChange={handleChange} />
+            {errors.salary && <p className='text-danger'>{errors.salary}</p>}
+
+
+            <input type="text" name="savings" className='input' placeholder='Savings' value={formData.salary} onChange={handleChange} />
+            {errors.savings && <p className='text-danger'>{errors.savings}</p>}
+
             {/* Password */}
             {/* <label htmlFor="password">Password</label> */}
             <input type="password" name="password" className='input' placeholder='Password' value={formData.password} onChange={handleChange} />
