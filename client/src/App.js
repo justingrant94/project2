@@ -1,16 +1,41 @@
-import { useEffect } from 'react'
-import axios from 'axios'
+// import { useEffect } from 'react'
+
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import React from 'react'
+
+import PageNavbar from './components/default/PageNavbar'
+import Home from './components/Home'
+import NotFound from './components/default/NotFound'
+
+//Auth Components
+import Register from './components/Register'
+import Login from './components/Login'
+
+
+
 
 const App = () => {
-  useEffect(() => {
-    const getData = async () => {
-      const { data } = await axios.get('/api/products/') // * <-- replace with your endpoint
-      console.log(data)
-    }
-    getData()
-  })
 
-  return <h1>Hello World</h1>
+  return (
+    <main className='site-wrapper'>
+      <BrowserRouter>
+        <PageNavbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {/* <PageNavbar /> */}
+
+
+
+          {/* Auth routes - starting with register */}
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </main>
+  )
 }
 
 export default App

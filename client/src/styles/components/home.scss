@@ -1,0 +1,26 @@
+.hero {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  .hero-container {
+
+    >p,
+    h1,
+    .btn {
+      color: #85bb65;
+      font-weight: bold;
+      margin-right: 11px;
+    }
+
+    padding: 30px;
+    border-radius: 30px;
+  }
+}
+
+.hiding {
+  // hiding nav bar off home page
+  display: none !important
+}
