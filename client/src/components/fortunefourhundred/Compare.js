@@ -58,14 +58,17 @@ const Compare = () => {
       <Container className='billionaire-list'>
         <Row>
           {billionaires.map(billionaire => {
-            const { uri, name, squareImage, finalWorth, abouts } = billionaire
+            const { uri, personName, squareImage, finalWorth, abouts } = billionaire
             // console.log(uri)
             return (
               <Col key={uri} md='5' lg='4' className='character mb-4'>
                 <Card style={{ width: '18rem' }}>
                   <Card.Img variant='top' src={squareImage} />
                   <Card.Body className='bd-light'>
-                    <Card.Title className='text-center mb-0'>{name}- {finalWorth} - {abouts} </Card.Title>
+                    <Card.Title className='text-center mb-0'>
+                      - <h1>Name<span></span></h1>{personName}
+                      - <h2><span>Networth</span></h2>${finalWorth} -
+                      - <h3><span>Description</span></h3><p>{abouts}</p></Card.Title>
                   </Card.Body>
                 </Card>
               </Col>
