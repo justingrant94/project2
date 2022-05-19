@@ -25,6 +25,10 @@ export const secureRoute = async (req, res, next) => {
 
     if (!userToVerify) throw new Error('User not found')
 
+    //Update the req object that will be passed into the controller and add the userToVerify
+
+    req.verifiedUser = userToVerify
+
     next()
 
   } catch (err) {
