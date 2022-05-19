@@ -1,0 +1,40 @@
+@mixin downCenterFlex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inspect-container {
+  margin: 0 auto;
+  width: 50%;
+  height: fit-content;
+
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .image-container {
+    width: 100%;
+    margin: 0;
+    @include downCenterFlex();
+    
+    img {
+      height: 30vh;
+      width: fit-content;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+  .name-container {
+    @include downCenterFlex();
+  }
+
+  .worth-container {
+    @include downCenterFlex();
+  }
+
+}

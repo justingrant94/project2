@@ -40,8 +40,8 @@ const Login = () => {
             <h1>Login</h1>
             <input type="email" name="email" className='input' placeholder='Email' required value={formData.email} onChange={handleChange} />
             <input type="password" name="password" className='input' placeholder='Password' required value={formData.password} onChange={handleChange} />
-            {errors && <p className='text-danger text-center'>U n a u t h o r i s e d</p>}
-            <button type="submit" className="btn btn-success w-100 mt-3">L o g i n</button>
+            {errors && <p className='text-danger text-center'>Unauthorised</p>}
+            <button type="submit" className="btn btn-success w-100 mt-3">Login</button>
           </form>
         </Row>
       </Container>
