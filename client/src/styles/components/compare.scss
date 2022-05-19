@@ -1,20 +1,51 @@
 .billionaire-list {
-  // // flex-grow: 1;
-  // display: flex;
-  // align-items: flex-start;
-  // // justify-content: center;
+  margin-bottom: 50px;
+  margin-top: 50px;
   position: absolute;
-  left: 200px;
-  width: 40px;
-  // height: 120px;
-}
+  left: 300px;
+  max-width: 33.33px;
+  float: left;
+  padding: 10px;
+  border-radius: 8px;
 
-.billionaire-list {
+  // float: left;
+  // position: relative;
+  // width: 33.33%;
 
   h1,
   h2,
   h3 {
     text-align: left;
-    color: #0000FF
+    color: #0000FF;
+    font-size: large;
+  }
+
+  p {
+    font-size: small;
+    letter-spacing: 1px;
+  }
+
+  span {
+    text-align: left;
+    font-size: medium;
+  }
+}
+
+
+.middle-col {
+  margin-bottom: 50px;
+  margin-top: 50px;
+  width: 33.33%;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 18px;
+
+  .form-control {
+    margin-top: 30px;
+    width: 180px;
   }
 }
