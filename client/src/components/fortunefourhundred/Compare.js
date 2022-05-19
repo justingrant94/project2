@@ -65,7 +65,7 @@ const Compare = () => {
                 <Card style={{ width: '18rem' }}>
                   <Card.Img variant='top' src={squareImage} />
                   <Card.Body className='bd-light'>
-                    <Card.Title className='text-center mb-0'>
+                    <Card.Title className='text-center mb-1'>
                       - <h1>Name<span></span></h1>{personName}
                       - <h2><span>Networth</span></h2>${finalWorth} -
                       - <h3><span>Description</span></h3><p>{abouts}</p></Card.Title>
