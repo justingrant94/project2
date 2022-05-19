@@ -53,6 +53,8 @@ const Compare = () => {
 
 
 
+  /// Billionaire fortune 400 list; 
+
   return (
     <>
       <Container className='billionaire-list'>
@@ -66,9 +68,9 @@ const Compare = () => {
                   <Card.Img variant='top' src={squareImage} />
                   <Card.Body className='bd-light'>
                     <Card.Title className='text-center mb-1'>
-                      - <h1>Name<span></span></h1>{personName}
-                      - <h2><span>Networth</span></h2>${finalWorth} -
-                      - <h3><span>Description</span></h3><p>{abouts}</p></Card.Title>
+                      <h1>Name<span></span></h1>{personName}
+                      <h2><span>Networth</span></h2>${finalWorth}
+                      <h3><span>Description</span></h3><p>{abouts}</p></Card.Title>
                   </Card.Body>
                 </Card>
               </Col>
@@ -78,6 +80,15 @@ const Compare = () => {
       </Container>
     </>
   )
+
+
+
+
+
+
+
+
+
 }
 
 export default Compare
