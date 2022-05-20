@@ -14,15 +14,21 @@ export const addBasketItems = async (req, res) => {
     
     //Create an item in a basket with an owner
     const basketItem = { ...req.body }
-    // const basketWithOwner = { ...req.body, owner: req.verifiedUser._id }
     console.log('basket to update ->', basketItem )
+    console.log(basketItem.itemId, userToUpdate.basket)
+    const condVariable = userToUpdate.basket.findIndex(item => item.itemId === basketItem.itemId)
     
-    // console.log('basket ->', userToUpdate)
-    
+    console.log('conditional Variable --->', condVariable)
+    if (condVariable === -1){
+      userToUpdate.basket.push(basketItem)
+      console.log('user ->', userToUpdate)
+    } else {
+      userToUpdate.basket[condVariable].quantity += 1
+    }
+
     //Add basketWithOwner
-    userToUpdate.basket.push(basketItem)
-    console.log('user ->', userToUpdate)
-    //console.log('Item Id ->', itemId)
+
+    
 
     //Save
     await userToUpdate.save()

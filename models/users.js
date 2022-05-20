@@ -11,7 +11,8 @@ import mongooseUniqueValidator from 'mongoose-unique-validator'
 
 const basketItemsSchema = new mongoose.Schema({
   itemId: { type: mongoose.Schema.ObjectId, ref: 'Items', required: true},
-  owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true}
+  owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true},
+  quantity: { type: Number, }
 }, { id: false })
 
 const userSchema = new mongoose.Schema({
