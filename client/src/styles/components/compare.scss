@@ -1,3 +1,10 @@
+@mixin downCenterFlex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
 .billionaire-list {
   margin-bottom: 50px;
   margin-top: 50px;
@@ -48,7 +55,5 @@ nav {
 
 
 .filters {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include downCenterFlex()
 }
