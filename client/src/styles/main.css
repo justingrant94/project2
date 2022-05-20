@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-image: url("../assets/vault.jpg");
+  background-position: center;
+}
+
+.site-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.hero {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.hero .hero-container {
+  padding: 30px;
+  border-radius: 30px;
+}
+.hero .hero-container p,
+.hero .hero-container h1,
+.hero .hero-container .btn {
+  color: #85bb65;
+  font-weight: bold;
+  margin-right: 11px;
+  letter-spacing: 2px;
+}
+
+.hiding {
+  display: none !important;
+}
+
+.navbar {
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+}
+.navbar .nav-link {
+  color: rgb(58, 168, 58);
+}
+
+.not-found {
+  margin-top: 200px;
+  text-align: center;
+}
+
+.form-page {
+  flex-grow: 1;
+}
+.form-page form {
+  border-radius: 8px;
+  background: white;
+  padding: 30px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+}
+.form-page form h1 {
+  font-size: 1.6rem;
+  text-align: center;
+  color: #85bb65;
+}
+.form-page form h2 {
+  color: #85bb65;
+  font-weight: bold;
+  margin-right: 11px;
+  font-size: small;
+  text-align: center;
+  margin-top: 2px;
+}
+.form-page form label {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+.form-page form .input {
+  display: block;
+  width: 100%;
+  background: #fafafa;
+  border: 1px solid #efefef;
+  font-size: 12px;
+  border-radius: 3px;
+  color: #262626;
+  padding: 10px;
+}
+.form-page form p {
+  font-size: 0.8rem;
+  margin: -5px 0 10px;
+}/*# sourceMappingURL=main.css.map */

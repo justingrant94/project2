@@ -4,14 +4,12 @@
 
 body {
   margin: 0;
-  background-image: url('../assets/vault.jpg');
+  background-image: url("../assets/vault.jpg");
   background-position: center;
-  
 }
-
 
 .site-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
+}/*# sourceMappingURL=base.css.map */

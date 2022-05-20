@@ -10,6 +10,7 @@ import NotFound from './components/default/NotFound'
 //Auth Components
 import Register from './components/Register'
 import Login from './components/Login'
+import Inspect from './components/Inspect'
 
 
 
@@ -31,6 +32,7 @@ const App = () => {
           {/* Auth routes - starting with register */}
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/inspect" element={<Inspect />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>
