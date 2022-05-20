@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useParams, Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
+
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+
 import testDrew from '../assets/testDrew.jpg'
 
-import { useParams, Link, useNavigate } from 'react-router-dom'
-
 const Inspect = () => {
-
   const { id } = useParams()
 
   const [editMode, setEditMode] = useState(false)
@@ -17,12 +20,32 @@ const Inspect = () => {
     public: false,
   })
 
+  const [errors, setErrors] = useState(false)
+
+  useEffect(() => {
+    const getContent = async () => {
+      try {
+        const { data } = await axios.get('endpoint' + id) // ! Change !
+        setContent(data)
+      } catch (err) {
+        console.log(err)
+        setErrors(true)
+      }
+    }
+    getContent()
+  }, [id])
+
   const handleEdit = () => {
     setEditMode(!editMode)
   }
 
-  const handleDelete = () => {
-    //Delete the item +/- log out
+  const handleDelete = async () => {
+    try {
+      await axios.delete('endpoint' + id) // ! Change !
+    } catch (err) {
+      console.log(err)
+      setErrors(true)
+    }
   }
 
   const handleSavingsChange = () => {
@@ -33,8 +56,8 @@ const Inspect = () => {
   }
 
   return (
-    <section className='inspect-container bg-light'>
-      <div className='image-container'>
+    <Container className='inspect-container bg-light'>
+      <div className='image-container field'>
         <img src={content.image} />
         {
           editMode
@@ -45,7 +68,7 @@ const Inspect = () => {
           </>
         }
       </div>
-      <div className='name-container'>
+      <Row className='name-container field'>
         <h2>Name</h2>
         {
           editMode
@@ -54,21 +77,23 @@ const Inspect = () => {
             :
             <p>{content.name}</p>
         }
-      </div>
-      <div className='worth-container'>
+      </Row>
+      <Row className='worth-container field'>
         <h2>Worth</h2>
-        <div>
+        <Row className='salary-row'>
           <span>Sarlary</span>
           {
             editMode
               ?
-              <div>
+              <>
                 <span>£</span>
                 <input type='text' value={content.salary} />
-              </div>
+              </>
               :
               <p>{'£' + content.salary}</p>
           }
+        </Row>
+        <Row className='savings-row'>
           <span>Savings</span>
           {
             editMode
@@ -80,9 +105,9 @@ const Inspect = () => {
               :
               <p>{'£' + content.savings}</p>
           }
-        </div>
-      </div>
-      <div className='description-container'>
+        </Row>
+      </Row>
+      <Row className='description-container field'>
         <h2>Description</h2>
         <div>
           {
@@ -93,26 +118,26 @@ const Inspect = () => {
               <p>{content.description}</p>
           }
         </div>
-      </div>
-      <div className='buttons-container'>
+      </Row>
+      <Row className='buttons-container field'>
         <button onClick={handleEdit}>Edit</button>
         <button onClick={handleDelete}>Delete</button>
-      </div>
-      <div className='ownedItems-container'>
-        <h2>Owned Items</h2>
-        <div className='ownedItemsList'>
-
-        </div>
-      </div>
-      <div className='public-container'>
+      </Row>
+      <Row className='public-container field'>
         <h2>Set to public?</h2>
         <input type='checkbox' value={content.public} />
         {
           editMode &&
           <sub>Public items/accounts can be seen (but not edited) by other users.</sub>
         }
-      </div>
-    </section>
+      </Row>
+      <Row className='ownedItems-container field'>
+        <h2>Owned Items</h2>
+        <div className='ownedItemsList'>
+
+        </div>
+      </Row>
+    </Container>
   )
 }
 
