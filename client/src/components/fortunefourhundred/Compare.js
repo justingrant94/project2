@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
+import { Link } from 'react-router-dom'
+
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
+
 
 const Compare = () => {
 
@@ -72,26 +77,36 @@ const Compare = () => {
         return regexSearch.test(billionaire.personName) && (billionaire.gender === filters.gender || filters.gender === 'All')
       })
       setFilteredBillionaires(filtered)
-      // console.log(filtered)
     }
   }, [filters, billionaires])
 
 
   return (
     <>
-      <div className='container'>
-        <div className='filter-container'>
+      {/* contains dropdown filter & also search field. */}
+      <Container className='filter-container'>
+        <Navbar bg='light' expand='sm' >
+          <Navbar.Brand as={Link} to='/' className=''>HomePage</Navbar.Brand>
+          <Navbar.Toggle aria-controls='basic-navbar-nav' />
+          <Navbar.Collapse id='basic-navbar-nav' className='justify-content-end'>
+            <Nav.Link as={Link} to='/'>Fortune400</Nav.Link>
+            <Nav.Link as={Link} to='/'>Products</Nav.Link>
+            <Nav.Link as={Link} to='/'>Misc</Nav.Link>
+            <Nav.Link as={Link} to='/'>Users</Nav.Link>
+            <Nav.Link as={Link} to='/'>Celebrity</Nav.Link>
+          </Navbar.Collapse>
+        </Navbar>
+        <div className='filters'>
           <select name='gender' value={filters.gender} onChange={handleChange}>
-            <option key='All' value="All">All</option>
+            <option className="dropdown-menu mr-sm2" aria-labelledby="dropdownMenuButton" key='All' value="All">Filter</option>
             {genders.map(gender => <option key={gender} value={gender}>{gender}</option>)}
           </select>
-          {/* Search Field */}
-          <input type='text' name='searchTerm' placeholder='Search...' value={filters.searchTerm} onChange={handleChange} />
+          <input className='form-control mr-sm-2' type='text' name='searchTerm' placeholder='Search...' value={filters.searchTerm} onChange={handleChange} />
         </div>
-      </div>
 
+      </Container>
 
-      <Container className='billionaire-list'>
+      <Container className='billionaire-list' >
         <Row>
           {(filteredBillionaires.length ? filteredBillionaires : billionaires).map(billionaire => {
             const { uri, personName, squareImage, finalWorth, abouts } = billionaire
@@ -113,24 +128,11 @@ const Compare = () => {
           })}
         </Row>
       </Container>
+
+
     </>
+
   )
 }
 
 export default Compare
-
-
-{/* <Container className='middle-col'>
-        <nav className="navbar navbar-light bg-light">
-          <a className="navbar-brand" href="#">Fortune400</a>
-          <a className="navbar-brand" href="#">Products</a>
-          <a className="navbar-brand" href="#">Misc</a>
-          <a className="navbar-brand" href="#">Users</a>
-          <a className="navbar-brand" href="#">Celebrities</a>
-        </nav> */}
-
-{/* Search Bar */ }
-{/* <input className='form-control form-control-sm' id='2' type='text'
-          name='searchTerm' placeholder='Search..' /> */}
-{/* 
-    </Container> */}
