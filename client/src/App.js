@@ -1,11 +1,10 @@
-// import { useEffect } from 'react'
 
-
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import PageNavbar from './components/default/PageNavbar'
 import Home from './components/Home'
+import Compare from './components/fortunefourhundred/Compare'
 import NotFound from './components/default/NotFound'
 
 //Auth Components
@@ -25,6 +24,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           {/* <PageNavbar /> */}
+
+          <Route path='/compare' element={<Compare />} />
 
 
 
