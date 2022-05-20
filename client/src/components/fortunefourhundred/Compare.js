@@ -85,7 +85,6 @@ const Compare = () => {
       {/* contains dropdown filter & also search field. */}
       <Container className='list-nav'>
         <Navbar bg='light' expand='sm' >
-          <Navbar.Brand as={Link} to='/' className=''>HomePage</Navbar.Brand>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav' className='justify-content-end'>
             <Nav.Link as={Link} to='/'>Fortune400</Nav.Link>
