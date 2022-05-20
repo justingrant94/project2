@@ -36,24 +36,33 @@
   }
 }
 
-.filter-container {
-  margin: auto;
-  display: block;
+.center-container {
   width: 60%;
-  width: 400px;
-  margin: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
+  height: 100vh;
 
-nav {
-  width: 400px;
-  margin: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
+  .list-nav {
+    margin: auto;
+    display: block;
+    width: 100%;
+    margin: auto;
+    height: fit-content;
 
+    .filters {
+      display: flex;
 
-.filters {
-  @include downCenterFlex()
+      select {
+        width: 20%;
+        margin-right: 50px;
+      }
+    }
+  }
+
+  .card-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    height: 80%;
+    overflow-y: scroll;
+  }
 }

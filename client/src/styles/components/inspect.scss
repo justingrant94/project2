@@ -17,10 +17,14 @@
   flex-direction: column;
   align-items: center;
 
+  .field {
+    @include downCenterFlex();
+    width: 100%;
+  }
+
   .image-container {
     width: 100%;
     margin: 0;
-    @include downCenterFlex();
     
     img {
       height: 30vh;
@@ -29,12 +33,7 @@
     }
   }
   
-  .name-container {
-    @include downCenterFlex();
+  .salary-row, .savings-row {
+    display: flex;
   }
-
-  .worth-container {
-    @include downCenterFlex();
-  }
-
 }
