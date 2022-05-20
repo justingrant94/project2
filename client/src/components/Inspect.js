@@ -62,10 +62,10 @@ const Inspect = () => {
           {
             editMode
               ?
-              <>
+              <div>
                 <span>£</span>
                 <input type='text' value={content.salary} />
-              </>
+              </div>
               :
               <p>{'£' + content.salary}</p>
           }
@@ -73,10 +73,10 @@ const Inspect = () => {
           {
             editMode
               ?
-              <>
+              <div>
                 <span>£</span>
                 <input type='text' value={content.savings} onChange={handleSavingsChange} />
-              </>
+              </div>
               :
               <p>{'£' + content.savings}</p>
           }
