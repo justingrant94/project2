@@ -69,9 +69,10 @@ const Compare = () => {
       console.log(regexSearch)
       //filter through billionaires and ass matching people to fikteredbillionaire state
       const filtered = billionaires.filter(billionaire => {
-        return regexSearch.test(billionaire.name) && (billionaire.gender === filters.gender || filters.gender === 'All')
+        return regexSearch.test(billionaire.personName) && (billionaire.gender === filters.gender || filters.gender === 'All')
       })
       setFilteredBillionaires(filtered)
+      // console.log(filtered)
     }
   }, [filters, billionaires])
 
