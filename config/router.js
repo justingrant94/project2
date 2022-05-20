@@ -4,7 +4,7 @@ import { registerUser, loginUser } from "../controllers/auth.js"
 import { showItems, addItem, getOneItem, deleteItem, updateItem } from "../controllers/items.js"
 import { secureRoute } from "./secureRoute.js"
 import { getProfile, showUsers, oneUser } from "../controllers/users.js"
-import { addBasketItems } from "../controllers/userBasketItems.js"
+import { addBasketItems, removeBasketItem } from "../controllers/userBasketItems.js"
 
 const router = express.Router()
 
@@ -17,8 +17,13 @@ router.route('/items/:id')
   .delete(secureRoute, deleteItem)
   .get(getOneItem)
 
+//BASKET ROUTES  
 router.route('/items/:id/basket') // Adding an item to the users Basket
   .post(secureRoute, addBasketItems)
+
+router.route('/users/:userId/basket/:basketItemId')
+  .delete(secureRoute, removeBasketItem)
+
 
 router.route('/register')
   .post(registerUser)
