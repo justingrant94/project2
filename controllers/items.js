@@ -20,11 +20,30 @@ export const getOneItem = async (req, res) => {
   }
 }
 
+
 export const updateItem = async (req, res) => {
   const { id } = req.params
-  const { body: editItem } = req
+  const { body: editItem, verifiedUser } = req
   try {
-    const updatedItem = await Items.findByIdAndUpdate(id, editItem, { new: true })
+    const updatedItem = await Items.findById(id)
+    console.log('verified-user', verifiedUser._id)
+    console.log('document owner', updatedItem.owner)
+    // console.log(updatedItem)
+    // const updatedItem = await Items.findByIdAndUpdate(id, editItem, { new: true })
+    
+    if (!updatedItem.owner.equals(verifiedUser._id)) throw new Error('Unauthorised')
+
+    console.log('owners match')
+    //Update the document
+    // This
+    // Object.assign(updatedItem, editItem)
+    Object.assign(updatedItem, editItem)
+
+    await updatedItem.save()
+    // //Save the document
+    // This
+    // await updatedItem.save()
+    
     if (!updatedItem){
       return res.status(404).json({
         message: 'Tapas not found'
@@ -38,17 +57,35 @@ export const updateItem = async (req, res) => {
 }
 
 export const addItem = async (req, res) => {
-  const { body: newItem } = req
-  console.log(req.body, 'req.body')
-  const addedItem = await Items.create(newItem)
-  return res.status(200).json(addedItem)
+  const { body: newItem, verifiedUser } = req
+  try {
+    console.log('req.body ->', newItem)
+    const addedItem = await Items.create({ ...newItem, owner: verifiedUser._id})
+    return res.status(200).json(addedItem)
+  } catch (error) {
+    console.log('Cant add this item')
+    console.log(error)
+    return res.status(400).json(error.name)
+  }
   }
 
 export const deleteItem = async (req, res) => {
   const { id } = req.params
   try {
-    await Items.findByIdAndRemove(id)
-    return res.status(204).json({ message: 'Item has been deleted!'})
+
+    const itemToDelete = await Items.findById(id)
+ 
+    console.log('verified-user', req.verifiedUser._id)
+    console.log('document owner', itemToDelete.owner)
+   
+    if (!itemToDelete.owner.equals(req.verifiedUser._id)){
+      console.log('Failed at owner check')
+      throw new Error('Unauthorised')
+    }
+
+    await itemToDelete.remove()
+
+    return res.sendStatus(204)
   } catch (err) {
     return res.status(404).json(err)
   }
