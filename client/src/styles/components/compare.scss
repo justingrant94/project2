@@ -1,3 +1,9 @@
+// .form-control {
+//   margin-top: 30px;
+//   width: 180px;
+
+// }
+
 .billionaire-list {
   margin-bottom: 50px;
   margin-top: 50px;
@@ -7,10 +13,6 @@
   float: left;
   padding: 10px;
   border-radius: 8px;
-
-  // float: left;
-  // position: relative;
-  // width: 33.33%;
 
   h1,
   h2,
@@ -28,24 +30,5 @@
   span {
     text-align: left;
     font-size: medium;
-  }
-}
-
-
-.middle-col {
-  margin-bottom: 50px;
-  margin-top: 50px;
-  width: 33.33%;
-  height: 100px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  font-size: 18px;
-
-  .form-control {
-    margin-top: 30px;
-    width: 180px;
   }
 }
