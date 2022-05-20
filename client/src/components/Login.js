@@ -35,15 +35,13 @@ const Login = () => {
   return (
     <section className="form-page">
       <Container>
-        <Row>
-          <form className='col-10 offset-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-5' onSubmit={handleSubmit}>
-            <h1>Login</h1>
-            <input type="email" name="email" className='input' placeholder='Email' required value={formData.email} onChange={handleChange} />
-            <input type="password" name="password" className='input' placeholder='Password' required value={formData.password} onChange={handleChange} />
-            {errors && <p className='text-danger text-center'>Unauthorised</p>}
-            <button type="submit" className="btn btn-success w-100 mt-3">Login</button>
-          </form>
-        </Row>
+        <form className='col-10 offset-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-5' onSubmit={handleSubmit}>
+          <h1>Login</h1>
+          <input type="email" name="email" className='input' placeholder='Email' required value={formData.email} onChange={handleChange} />
+          <input type="password" name="password" className='input' placeholder='Password' required value={formData.password} onChange={handleChange} />
+          {errors && <p className='text-danger text-center'>Unauthorised</p>}
+          <button type="submit" className="btn btn-success w-100 mt-3">Login</button>
+        </form>
       </Container>
     </section>
   )
