@@ -3,6 +3,11 @@ import axios from 'axios'
 
 import { Link } from 'react-router-dom'
 
+// imported components
+import Filters from './Filter'
+import LeftColumnCards from './LeftColumnCards'
+import NavBar from './NavBar'
+
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -10,6 +15,7 @@ import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
+
 
 
 const Compare = () => {
@@ -82,49 +88,10 @@ const Compare = () => {
 
   return (
     <div className='center-container'>
-      {/* contains dropdown filter & also search field. */}
-      <Container className='list-nav'>
-        <Navbar bg='light' expand='sm' >
-          <Navbar.Toggle aria-controls='basic-navbar-nav' />
-          <Navbar.Collapse id='basic-navbar-nav' className='justify-content-end'>
-            <Nav.Link as={Link} to='/'>Fortune400</Nav.Link>
-            <Nav.Link as={Link} to='/'>Products</Nav.Link>
-            <Nav.Link as={Link} to='/'>Misc</Nav.Link>
-            <Nav.Link as={Link} to='/'>Users</Nav.Link>
-            <Nav.Link as={Link} to='/'>Celebrity</Nav.Link>
-          </Navbar.Collapse>
-        </Navbar>
-        <div className='filters'>
-          <select name='gender' value={filters.gender} onChange={handleChange}>
-            <option className="dropdown-menu mr-sm2" aria-labelledby="dropdownMenuButton" key='All' value="All">Filter</option>
-            {genders.map(gender => <option key={gender} value={gender}>{gender}</option>)}
-          </select>
-          <input className='form-control mr-sm-2' type='text' name='searchTerm' placeholder='Search...' value={filters.searchTerm} onChange={handleChange} />
-        </div>
 
-      </Container>
-
-      <Container className='card-list' >
-        {(filteredBillionaires.length ? filteredBillionaires : billionaires).map(billionaire => {
-          const { uri, personName, squareImage, finalWorth, abouts } = billionaire
-          // console.log(uri)
-          return (
-            ///the left column of the billionaires
-            <Col key={uri} md='5' lg='4' className='character mb-4'>
-              <Card style={{ width: '18rem' }}>
-                <Card.Img variant='top' src={squareImage} />
-                <Card.Body className='bg-light'>
-                  <Card.Title className='text-center mb-1'>
-                    <h1>Name<span></span></h1>{personName}
-                    <h2><span>Net worth</span></h2>${finalWorth * 1000000}
-                    <h3><span>Description</span></h3><p>{abouts}</p></Card.Title>
-                </Card.Body>
-              </Card>
-            </Col>
-          )
-        })}
-
-      </Container>
+      <NavBar Container={Container} Navbar={Navbar} Nav={Nav} Link={Link} />
+      <Filters Container={Container} Navbar={Navbar} Nav={Nav} Link={Link} filters={filters} handleChange={handleChange} genders={genders} />
+      <LeftColumnCards Container={Container} filteredBillionaires={filteredBillionaires} billionaires={billionaires} Col={Col} Card={Card} />
 
 
     </div>
