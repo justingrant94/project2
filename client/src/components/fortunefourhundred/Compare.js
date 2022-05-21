@@ -21,6 +21,9 @@ import Navbar from 'react-bootstrap/Navbar'
 const Compare = () => {
 
   const [billionaires, setBillionaires] = useState([])
+
+  const [billionaireList, SetBillionaieList] = useState([])  // for middleColumn
+
   const [filteredBillionaires, setFilteredBillionaires] = useState([])
   const [genders, setGenders] = useState([])
   const [filters, setFilters] = useState({
@@ -32,10 +35,6 @@ const Compare = () => {
     const getBillionaires = async () => {
       try {
         const { data } = await axios.get('https://forbes400.herokuapp.com/api/forbes400/')
-        // console.log(data)
-        // console.log(data[1].person.name)
-        // console.log(data[0].finalWorth)
-        // console.log(data[0].bios)
         setBillionaires(data)
       } catch (error) {
         console.log(error)
@@ -86,16 +85,49 @@ const Compare = () => {
   }, [filters, billionaires])
 
 
+
+  //   useEffect(() => {
+  //     if (billionaires.length) {
+  //       const billionaireList = []
+  //       billionaires.forEach(billionaire => {
+  //         if (billionaireList.includes(billionaire.squareImage)) {
+  //           billionaireList.push(billionaire.squareImage)
+
+  //         }
+
+  //       })
+
+  // }
+  //   })
+
+
   return (
     <div className='center-container'>
-
       <NavBar Container={Container} Navbar={Navbar} Nav={Nav} Link={Link} />
       <Filters Container={Container} Navbar={Navbar} Nav={Nav} Link={Link} filters={filters} handleChange={handleChange} genders={genders} />
       <LeftColumnCards Container={Container} filteredBillionaires={filteredBillionaires} billionaires={billionaires} Col={Col} Card={Card} />
 
 
-    </div>
+      <Container className='middle-container'>
+        {billionaireList.map(billionaire => {
+          const { squareImage, uri } = billionaire
+          console.log(billionaire)
+          return (
+            <Col key={uri} md='5' lg='4' className='character mb-4'>
+              <Card style={{ width: '18rem' }}>
+                <Card.Img variant='top' src={squareImage} />
+                {/* <Card.Body className='bg-light'> */}
+              </Card>
+            </Col>
+          )
+        })}
+      </Container>
 
+
+
+
+
+    </div >
   )
 }
 
