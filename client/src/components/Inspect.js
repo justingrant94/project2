@@ -5,8 +5,6 @@ import axios from 'axios'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 
-import testDrew from '../assets/testDrew.jpg'
-
 const Inspect = () => {
   const { id } = useParams()
 
@@ -39,6 +37,13 @@ const Inspect = () => {
     setEditMode(!editMode)
   }
 
+  const handleSave = () => {
+
+
+
+    setEditMode(!editMode)
+  }
+
   const handleDelete = async () => {
     try {
       await axios.delete('endpoint' + id) // ! Change !
@@ -55,6 +60,11 @@ const Inspect = () => {
     })
   }
 
+  const handleFieldChange = (e) => {
+    setContent({ ...formData, [e.target.name]: e.target.value })
+    setErrors({ ...errors, [e.target.name]: '' })
+  }
+
   return (
     <Container className='inspect-container bg-light'>
       <div className='image-container field'>
@@ -63,7 +73,7 @@ const Inspect = () => {
           editMode
           &&
           <>
-            <input type='text' value={content.image} />
+            <input type='text' name='image' value={content.image} onChange={handleFieldChange} />
             <sub>Make sure to use a valid online URL.</sub>
           </>
         }
@@ -73,7 +83,7 @@ const Inspect = () => {
         {
           editMode
             ?
-            <input type='text' value={content.name} />
+            <input type='text' name='name' value={content.name} />
             :
             <p>{content.name}</p>
         }
@@ -87,7 +97,7 @@ const Inspect = () => {
               ?
               <>
                 <span>£</span>
-                <input type='text' value={content.salary} />
+                <input type='text' name='salary' value={content.salary} />
               </>
               :
               <p>{'£' + content.salary}</p>
@@ -100,7 +110,7 @@ const Inspect = () => {
               ?
               <div>
                 <span>£</span>
-                <input type='text' value={content.savings} onChange={handleSavingsChange} />
+                <input type='text' name='savings' value={content.savings} onChange={handleSavingsChange} />
               </div>
               :
               <p>{'£' + content.savings}</p>
@@ -113,14 +123,20 @@ const Inspect = () => {
           {
             editMode
               ?
-              <textarea value={content.description} />
+              <textarea name='description' value={content.description} />
               :
               <p>{content.description}</p>
           }
         </div>
       </Row>
       <Row className='buttons-container field'>
-        <button onClick={handleEdit}>Edit</button>
+        {
+          editMode
+            ?
+            <button onClick={handleSave}>Save</button>
+            :
+            <button onClick={handleEdit}>Edit</button>
+        }
         <button onClick={handleDelete}>Delete</button>
       </Row>
       <Row className='public-container field'>
