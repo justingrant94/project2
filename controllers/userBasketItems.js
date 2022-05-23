@@ -15,7 +15,7 @@ export const addBasketItems = async (req, res) => {
     //Create an item in a basket with an owner
     const basketItem = { ...req.body }
     console.log('basket to update ->', basketItem )
-    console.log(basketItem.itemId, userToUpdate.basket)
+    console.log(basketItem.itemId, userToUpdate)
     const condVariable = userToUpdate.basket.findIndex(item => item.itemId === basketItem.itemId)
     
     console.log('conditional Variable --->', condVariable)
