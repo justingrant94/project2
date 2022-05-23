@@ -8,7 +8,6 @@ const Items = () => {
   useEffect(() => {
     const getData = async () => {
       const { data } = await axios.get('/items')
-      console.log('items api', data)
     }
     getData()
   })
