@@ -5,6 +5,8 @@ import axios from 'axios'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 
+import anonProfile from '../assets/anonProfile.jpg'
+
 const Inspect = () => {
   const { id } = useParams()
 
@@ -23,7 +25,7 @@ const Inspect = () => {
   useEffect(() => {
     const getContent = async () => {
       try {
-        const { data } = await axios.get('endpoint' + id) // ! Change !
+        const { data } = await axios.get(`/api/users/${id}`) // ! Change !
         setContent(data)
       } catch (err) {
         console.log(err)
@@ -61,14 +63,14 @@ const Inspect = () => {
   }
 
   const handleFieldChange = (e) => {
-    setContent({ ...formData, [e.target.name]: e.target.value })
+    setContent({ ...content, [e.target.name]: e.target.value })
     setErrors({ ...errors, [e.target.name]: '' })
   }
 
   return (
     <Container className='inspect-container bg-light'>
-      <div className='image-container field'>
-        <img src={content.image} />
+      <Row className='image-container field'>
+        <img src={content.image ? content.image : anonProfile} />
         {
           editMode
           &&
@@ -77,7 +79,7 @@ const Inspect = () => {
             <sub>Make sure to use a valid online URL.</sub>
           </>
         }
-      </div>
+      </Row>
       <Row className='name-container field'>
         <h2>Name</h2>
         {
@@ -133,11 +135,11 @@ const Inspect = () => {
         {
           editMode
             ?
-            <button onClick={handleSave}>Save</button>
+            <button className='btn btn-success' onClick={handleSave}>Save</button>
             :
-            <button onClick={handleEdit}>Edit</button>
+            <button className='btn btn-success' onClick={handleEdit}>Edit</button>
         }
-        <button onClick={handleDelete}>Delete</button>
+        <button className='btn btn-success' onClick={handleDelete}>Delete</button>
       </Row>
       <Row className='public-container field'>
         <h2>Set to public?</h2>
