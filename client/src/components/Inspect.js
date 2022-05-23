@@ -12,7 +12,7 @@ const Inspect = () => {
 
   const [editMode, setEditMode] = useState(false)
   const [content, setContent] = useState({
-    image: 'https://i.imgur.com/tQrn3yk.jpg',
+    image: '',
     name: 'Drew Burgess',
     salary: 23000,
     savings: 2800,

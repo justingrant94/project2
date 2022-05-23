@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import PageNavbar from './components/default/PageNavbar'
@@ -11,11 +11,23 @@ import NotFound from './components/default/NotFound'
 import Register from './components/Register'
 import Login from './components/Login'
 import Inspect from './components/Inspect'
+import axios from 'axios'
 
 
 
 
 const App = () => {
+
+  // console.log(process.env.REACT_APP_TOKEN)
+
+  useEffect(() => {
+    const getData = async () => {
+      const { data } = await axios.get('/api/items')
+      console.log(data)
+    }
+    getData()
+
+  })
 
   return (
     <main className='site-wrapper'>
