@@ -71,7 +71,6 @@ const Compare = () => {
     if (billionaires.length) {
       //generate search term 
       const regexSearch = new RegExp(filters.searchTerm, 'i')
-      console.log(regexSearch)
       //filter through billionaires and ass matching people to fikteredbillionaire state
       const filtered = billionaires.filter(billionaire => {
         return regexSearch.test(billionaire.personName) && (billionaire.gender === filters.gender || filters.gender === 'All')
