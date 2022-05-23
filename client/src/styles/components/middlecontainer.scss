@@ -1,26 +1,23 @@
 .middle-container {
-  width: 30%;
-  height: 80vh;
+  width: calc(33.33% - 20px);
+  // height: 80vh;
   height: 10em;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: auto;
+  margin-left: auto;
 
-  .card-list {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 80%;
-    overflow-y: scroll;
-    margin-bottom: 50px;
-    margin-top: 50px;
-    max-height: 400px;
-    min-height: 400px;
-  }
 }
 
 
+// .Card-Img {
+//   // width: calc(33.33% - 10px);
+
+// }
+
+// .Card.Img {}
+
 .card-body {
   padding: 0;
-
 }

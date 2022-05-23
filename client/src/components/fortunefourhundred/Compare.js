@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import Filters from './Filter'
 import LeftColumnCards from './LeftColumnCards'
 import NavBar from './NavBar'
+import ListOfBillionaires from './ListOfBillionaires'
 
 
 import Container from 'react-bootstrap/Container'
@@ -84,53 +85,16 @@ const Compare = () => {
     }
   }, [filters, billionaires])
 
-
-
-  //   useEffect(() => {
-  //     if (billionaires.length) {
-  //       const billionaireList = []
-  //       billionaires.forEach(billionaire => {
-  //         if (billionaireList.includes(billionaire.squareImage)) {
-  //           billionaireList.push(billionaire.squareImage)
-
-  //         }
-
-  //       })
-
-  // }
-  //   })
-
-
   return (
     <div className='center-container'>
+
       <NavBar Container={Container} Navbar={Navbar} Nav={Nav} Link={Link} />
+
       <Filters Container={Container} Navbar={Navbar} Nav={Nav} Link={Link} filters={filters} handleChange={handleChange} genders={genders} />
+
       <LeftColumnCards Container={Container} filteredBillionaires={filteredBillionaires} billionaires={billionaires} Col={Col} Card={Card} />
 
-
-      <Container className='middle-container'>
-        <Row>
-          {(filteredBillionaires.length ? filteredBillionaires : billionaires).map(billionaire => {
-            const { uri, squareImage } = billionaire
-            console.log(billionaire)
-            return (
-              <Col key={uri} md='6' lg='4' className='character mb-4'>
-                <Card>
-                  <Card.Img variant='top' src={squareImage} />
-                  <Card.Body className='bd-light'>
-                  </Card.Body>
-                </Card>
-              </Col>
-            )
-          })}
-
-
-
-
-        </Row>
-      </Container>
-
-
+      <ListOfBillionaires filteredBillionaires={filteredBillionaires} billionaires={billionaires} Container={Container} Row={Row} Card={Card} Col={Col} />
 
     </div >
   )
