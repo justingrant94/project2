@@ -1,6 +1,6 @@
 export default [
   {
-    name: 'matt',
+    name: 'Matt Bailey',
     email: 'matt@email.com',
     salary: 250000,
     savings: 5000,
@@ -8,7 +8,7 @@ export default [
     passwordConfirmation: 'pass'
   },
   {
-    name: 'justin',
+    name: 'Justin Grant',
     email: 'justin@email.com',
     salary: 30000,
     savings: 5000,
@@ -16,7 +16,7 @@ export default [
     passwordConfirmation: 'pass'
   },
   {
-    name: 'drew',
+    name: 'Drew Burgess',
     email: 'drew@email.com',
     salary: 30000,
     savings: 5000,
