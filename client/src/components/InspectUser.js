@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row'
 
 import anonProfile from '../assets/anonProfile.jpg'
 
-const Inspect = () => {
+const InspectUser = () => {
   const { id } = useParams()
 
   const [editMode, setEditMode] = useState(false)
@@ -25,7 +25,7 @@ const Inspect = () => {
   useEffect(() => {
     const getContent = async () => {
       try {
-        const { data } = await axios.get(`/api/users/${id}`) // ! Change !
+        const { data } = await axios.get(`/api/users/${id}`)
         setContent(data)
       } catch (err) {
         console.log(err)
@@ -48,7 +48,7 @@ const Inspect = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete('endpoint' + id) // ! Change !
+      await axios.delete(`/api/users/${id}`)
     } catch (err) {
       console.log(err)
       setErrors(true)
@@ -159,4 +159,4 @@ const Inspect = () => {
   )
 }
 
-export default Inspect
+export default InspectUser

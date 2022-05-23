@@ -3,7 +3,6 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
 
 const Login = () => {
 
@@ -18,9 +17,9 @@ const Login = () => {
 
   const handleSubmit = async () => {
     try {
-      const { data } = await axios.post(/*postMyData*/ '', formData)
+      const { data } = await axios.post('/api/login/', formData)
       console.log('Submitted')
-      navigate('/') // ! Change !
+      navigate('/compare')
     } catch (err) {
       console.log(err)
       setErrors(true)
