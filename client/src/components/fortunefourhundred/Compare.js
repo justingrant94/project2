@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-
 import { Link } from 'react-router-dom'
+
+// imported components
+import Filters from './Filter'
+import NavBar from './NavBar'
+import MiddleColumnCards from './MiddleColumnCards'
 
 
 import Container from 'react-bootstrap/Container'
@@ -12,7 +16,17 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 
 
+
 const Compare = () => {
+
+  // Indiviual list of items
+  const [items, SetItems] = useState([])
+  //Filtered list of items
+  const [filteredListItems, SetFilteredListItems] = useState([])
+
+
+
+
 
   const [billionaires, setBillionaires] = useState([])
   const [filteredBillionaires, setFilteredBillionaires] = useState([])
@@ -22,14 +36,29 @@ const Compare = () => {
     searchTerm: '',
   })
 
+
+  const [errors, setErrors] = useState(false)
+
+  useEffect(() => {
+    const getItems = async () => {
+      try {
+        // 
+        const { data } = await axios.get('/items')
+        SetItems(data)
+      } catch (error) {
+        setErrors(true)
+      }
+    }
+    getItems()
+  }, []) //empty array so it only triggers first render
+
+
+  // List of products. 
+
   useEffect(() => {
     const getBillionaires = async () => {
       try {
         const { data } = await axios.get('https://forbes400.herokuapp.com/api/forbes400/')
-        // console.log(data)
-        // console.log(data[1].person.name)
-        // console.log(data[0].finalWorth)
-        // console.log(data[0].bios)
         setBillionaires(data)
       } catch (error) {
         console.log(error)
@@ -71,7 +100,8 @@ const Compare = () => {
     if (billionaires.length) {
       //generate search term 
       const regexSearch = new RegExp(filters.searchTerm, 'i')
-      //filter through billionaires and ass matching people to fikteredbillionaire state
+      //filter through billionaires and matching people to filtered billionaire state
+
       const filtered = billionaires.filter(billionaire => {
         return regexSearch.test(billionaire.personName) && (billionaire.gender === filters.gender || filters.gender === 'All')
       })
@@ -80,56 +110,56 @@ const Compare = () => {
   }, [filters, billionaires])
 
 
+
+
   return (
     <div className='center-container'>
-      {/* contains dropdown filter & also search field. */}
-      <Container className='list-nav'>
-        <Navbar bg='light' expand='sm' >
-          <Navbar.Brand as={Link} to='/' className=''>HomePage</Navbar.Brand>
-          <Navbar.Toggle aria-controls='basic-navbar-nav' />
-          <Navbar.Collapse id='basic-navbar-nav' className='justify-content-end'>
-            <Nav.Link as={Link} to='/'>Fortune400</Nav.Link>
-            <Nav.Link as={Link} to='/'>Products</Nav.Link>
-            <Nav.Link as={Link} to='/'>Misc</Nav.Link>
-            <Nav.Link as={Link} to='/'>Users</Nav.Link>
-            <Nav.Link as={Link} to='/'>Celebrity</Nav.Link>
-          </Navbar.Collapse>
-        </Navbar>
-        <div className='filters'>
-          <select name='gender' value={filters.gender} onChange={handleChange}>
-            <option className="dropdown-menu mr-sm2" aria-labelledby="dropdownMenuButton" key='All' value="All">Filter</option>
-            {genders.map(gender => <option key={gender} value={gender}>{gender}</option>)}
-          </select>
-          <input className='form-control mr-sm-2' type='text' name='searchTerm' placeholder='Search...' value={filters.searchTerm} onChange={handleChange} />
-        </div>
+      <NavBar Container={Container} Navbar={Navbar} Nav={Nav} Link={Link} />
 
-      </Container>
+      <Filters Container={Container} Navbar={Navbar} Nav={Nav} Link={Link} filters={filters} handleChange={handleChange} genders={genders} />
+      {/* 
+      <Container className='left-column'>
+        {billionaires.map((billionaire) => {
+          const { uri, PersonName, squareImage, finalWorth, abouts } = billiionaire
+          // <Col key={uri}
 
-      <Container className='card-list' >
-        {(filteredBillionaires.length ? filteredBillionaires : billionaires).map(billionaire => {
-          const { uri, personName, squareImage, finalWorth, abouts } = billionaire
-          // console.log(uri)
+
+        }}
+      </Container> */}
+
+
+      {/* <Container className='right-column'>
+        <h1>User</h1>
+      </Container> */}
+
+      {/* // List */}
+      <MiddleColumnCards Container={Container} filteredBillionaires={filteredBillionaires} billionaires={billionaires} Col={Col} Card={Card} />
+
+
+
+      {/* <Container className='item-list' >
+        {items.map((items) => {
+          const { _id, name, image, description, value } = items
+          // console.log(_id)
+          // console.log(name)
+          // console.log(image)
           return (
-            ///the left column of the billionaires
-            <Col key={uri} md='5' lg='4' className='character mb-4'>
+            <Col key={_id} md='5' lg='4' className='character mb-4' >
               <Card style={{ width: '18rem' }}>
-                <Card.Img variant='top' src={squareImage} />
+                <Card.Img variant='top' src={image} />
                 <Card.Body className='bg-light'>
                   <Card.Title className='text-center mb-1'>
-                    <h1>Name<span></span></h1>{personName}
-                    <h2><span>Net worth</span></h2>${finalWorth * 1000000}
-                    <h3><span>Description</span></h3><p>{abouts}</p></Card.Title>
+                    <h1>Name<span></span></h1>{name}
+                    <h2><span>Net worth</span></h2>${value}
+                    <h3><span>Description</span></h3><p>{description}</p></Card.Title>
                 </Card.Body>
               </Card>
             </Col>
           )
         })}
 
-      </Container>
-
-
-    </div>
-
+      </Container> */}
+    </div >
   )
 }
 
