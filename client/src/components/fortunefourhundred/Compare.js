@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 
 // imported components
 import Filters from './Filter'
-import LeftColumnCards from './LeftColumnCards'
 import NavBar from './NavBar'
+import MiddleColumnCards from './MiddleColumnCards'
 
 
 import Container from 'react-bootstrap/Container'
@@ -133,7 +133,7 @@ const Compare = () => {
       </Container> */}
 
       {/* // List */}
-      <LeftColumnCards Container={Container} filteredBillionaires={filteredBillionaires} billionaires={billionaires} Col={Col} Card={Card} />
+      <MiddleColumnCards Container={Container} filteredBillionaires={filteredBillionaires} billionaires={billionaires} Col={Col} Card={Card} />
 
 
 

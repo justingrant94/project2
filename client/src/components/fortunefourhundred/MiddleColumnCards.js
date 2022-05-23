@@ -2,7 +2,7 @@ import React from 'react'
 import OneCard from './OneCard'
 
 
-const LeftColumnCards = ({ Container, filteredBillionaires, billionaires }) => {
+const MiddleColumnCards = ({ Container, filteredBillionaires, billionaires }) => {
   return (
     <Container className='card-list' >
       {(filteredBillionaires.length ? filteredBillionaires : billionaires).map(billionaire => {
@@ -16,4 +16,4 @@ const LeftColumnCards = ({ Container, filteredBillionaires, billionaires }) => {
   )
 }
 
-export default LeftColumnCards
+export default MiddleColumnCards
