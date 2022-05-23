@@ -15,7 +15,7 @@ const startServer = async () => {
   app.use(express.json())
   app.use(logger)
   app.use('/api', router)
-  
+
 
   await mongoose.connect(MONGODB_CONNECTION_STRING)
   console.log('Connected to MongoDB')
