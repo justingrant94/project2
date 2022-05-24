@@ -1,6 +1,20 @@
 import User from '../models/users.js'
 import mongoose from 'mongoose'
 
+export const getBasketItems = async (req, res) => {
+  const { userId } = req.params
+  try {
+    const user = await User.findById(userId)
+    const basketItems = user.basket
+    console.log({basketItems})
+    return res.status(200).json(basketItems)
+  } catch (error) {
+    console.log(error)
+    return res.status(404).json(error)
+  }
+}
+
+
 //Method Add Basket Items
 // /items/:id/basket
 

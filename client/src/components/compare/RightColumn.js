@@ -4,38 +4,56 @@ import axios from 'axios'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 
+import { getTokenFromLocalStorage } from '../../helpers/auth'
 import anonProfile from '../../assets/anonProfile.jpg'
 
 const RightColumn = ({ currentUser }) => {
 
-  const [basket, setBasket] = useState(currentUser.basket)
-
-  const getOneBasketItem = async (basketItem) => await axios.get(`/api/items/${basketItem.itemId}`)
+  const [items, setItems] = useState([])
+  const [basketItems, setBasketItems] = useState([])
+  const [errors, setErrors] = useState(false)
 
   useEffect(() => {
-    currentUser.basket && setBasket(() => {
-      return (
-        <div>
-          {
-            currentUser.basket.map(basketItem => {
-              return <p key={basketItem.itemId}>{() => getOneBasketItem(basketItem)}</p>
-            })
-          }
-        </div>
-      )
+    const getAllItemsFromBasket = async () => {
+      try {
+        const { data } = await axios.get(`/api/users/${currentUser._id}/basket`, {
+          headers: {
+            Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+          },
+        })
+        console.log(data)
+        setItems(data)
+      } catch (error) {
+        console.log(error)
+        setErrors(true)
+      }
     }
-    )
+
+    if (currentUser.basket) {
+      getAllItemsFromBasket()
+    }
 
   }, [currentUser.basket])
 
-  const handleBasket = async () => {
-    // console.log(currentUser)
-    if (currentUser.basket) return (
-      <div>
+  useEffect(() => {
+    const exchangeForActualItems = () => {
+      console.log(items)
+      items.forEach(async (item) => {
+        try {
+          const { data } = await axios.get(`/api/items/${item.itemId}`)
+          console.log([...basketItems, data])
+          setBasketItems(
+            [...basketItems, data]
+          )
+        } catch (error) {
+          console.log(error)
+          setErrors(true)
+        }
+      })
+    }
 
-      </div>
-    )
-  }
+    exchangeForActualItems()
+  }, [items])
 
   return (
     <Container className='right-container bg-light'>
@@ -58,9 +76,18 @@ const RightColumn = ({ currentUser }) => {
       </Row>
       <Row className='description-container field'>
         <h2>Basket</h2>
-        {
-          basket
-        }
+        <ul>
+          {
+            basketItems.map(bItem => {
+              console.log(basketItems)
+              return (
+                <li key={bItem._id} className='basket-item'>
+                  <p><span>{bItem.name}</span> <span>${bItem.value}</span></p>
+                </li>
+              )
+            })
+          }
+        </ul>
       </Row>
     </Container>
   )
