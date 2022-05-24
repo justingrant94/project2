@@ -5,9 +5,9 @@ import axios from 'axios'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 
-import testDrew from '../assets/testDrew.jpg'
+import anonProfile from '../assets/anonProfile.jpg'
 
-const Inspect = () => {
+const InspectUser = () => {
   const { id } = useParams()
 
   const [editMode, setEditMode] = useState(false)
@@ -25,7 +25,7 @@ const Inspect = () => {
   useEffect(() => {
     const getContent = async () => {
       try {
-        const { data } = await axios.get('endpoint' + id) // ! Change !
+        const { data } = await axios.get(`/api/users/${id}`)
         setContent(data)
       } catch (err) {
         console.log(err)
@@ -39,9 +39,20 @@ const Inspect = () => {
     setEditMode(!editMode)
   }
 
+  const handleSave = () => {
+
+
+
+    setEditMode(!editMode)
+  }
+
   const handleDelete = async () => {
     try {
+<<<<<<< HEAD:client/src/components/Inspect.js
       await axios.delete('/api/users/' + id) // ! Change !
+=======
+      await axios.delete(`/api/users/${id}`)
+>>>>>>> bb78ee5ed63e3c4187e02bb7a68d30d74360f363:client/src/components/InspectUser.js
     } catch (err) {
       console.log(err)
       setErrors(true)
@@ -55,25 +66,30 @@ const Inspect = () => {
     })
   }
 
+  const handleFieldChange = (e) => {
+    setContent({ ...content, [e.target.name]: e.target.value })
+    setErrors({ ...errors, [e.target.name]: '' })
+  }
+
   return (
     <Container className='inspect-container bg-light'>
-      <div className='image-container field'>
-        <img src={content.image} />
+      <Row className='image-container field'>
+        <img src={content.image ? content.image : anonProfile} />
         {
           editMode
           &&
           <>
-            <input type='text' value={content.image} />
+            <input type='text' name='image' value={content.image} onChange={handleFieldChange} />
             <sub>Make sure to use a valid online URL.</sub>
           </>
         }
-      </div>
+      </Row>
       <Row className='name-container field'>
         <h2>Name</h2>
         {
           editMode
             ?
-            <input type='text' value={content.name} />
+            <input type='text' name='name' value={content.name} />
             :
             <p>{content.name}</p>
         }
@@ -87,7 +103,7 @@ const Inspect = () => {
               ?
               <>
                 <span>£</span>
-                <input type='text' value={content.salary} />
+                <input type='text' name='salary' value={content.salary} />
               </>
               :
               <p>{'£' + content.salary}</p>
@@ -100,7 +116,7 @@ const Inspect = () => {
               ?
               <div>
                 <span>£</span>
-                <input type='text' value={content.savings} onChange={handleSavingsChange} />
+                <input type='text' name='savings' value={content.savings} onChange={handleSavingsChange} />
               </div>
               :
               <p>{'£' + content.savings}</p>
@@ -113,15 +129,21 @@ const Inspect = () => {
           {
             editMode
               ?
-              <textarea value={content.description} />
+              <textarea name='description' value={content.description} />
               :
               <p>{content.description}</p>
           }
         </div>
       </Row>
       <Row className='buttons-container field'>
-        <button onClick={handleEdit}>Edit</button>
-        <button onClick={handleDelete}>Delete</button>
+        {
+          editMode
+            ?
+            <button className='btn btn-success' onClick={handleSave}>Save</button>
+            :
+            <button className='btn btn-success' onClick={handleEdit}>Edit</button>
+        }
+        <button className='btn btn-success' onClick={handleDelete}>Delete</button>
       </Row>
       <Row className='public-container field'>
         <h2>Set to public?</h2>
@@ -141,4 +163,4 @@ const Inspect = () => {
   )
 }
 
-export default Inspect
+export default InspectUser

@@ -64,5 +64,24 @@
 
     height: 80%;
     overflow-y: scroll;
+
+    .one-card {
+      width: 20%;
+      margin: 1%;
+
+      .card-body {
+        button {
+          margin: 3px;
+        }
+
+        .card-title {
+          font-size: calc(6px + 1vw);
+
+          * {
+            font-size: calc(8px + 1vw);
+          }
+        }
+      }
+    }
   }
 }
