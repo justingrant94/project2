@@ -41,7 +41,7 @@ const Inspect = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete('endpoint' + id) // ! Change !
+      await axios.delete('/api/users/' + id) // ! Change !
     } catch (err) {
       console.log(err)
       setErrors(true)

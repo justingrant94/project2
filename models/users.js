@@ -10,9 +10,9 @@ import mongooseUniqueValidator from 'mongoose-unique-validator'
 // passwordConirmation
 
 const basketItemsSchema = new mongoose.Schema({
-  itemId: { type: mongoose.Schema.ObjectId, ref: 'Items', required: true},
+  itemId: { type: mongoose.Schema.ObjectId, ref: 'Items', required: true },
   owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true},
-  quantity: { type: Number, }
+  quantity: { type: Number, default: 1}
 }, { id: false })
 
 const userSchema = new mongoose.Schema({
