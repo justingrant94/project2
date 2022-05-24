@@ -31,11 +31,11 @@ router.route('/register')
 router.route('/login')
   .post(loginUser)
 
-  //  NEED TO ADD SECURE ROUTE TO THIS
+//  NEED TO ADD SECURE ROUTE TO THIS
 router.route('/profile')
   .get(secureRoute, getProfile)
 
-  //Show all the users
+//Show all the users
 router.route('/users')
   .get(showUsers)
 

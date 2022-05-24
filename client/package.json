@@ -35,7 +35,11 @@
       "last 1 safari version"
     ]
   },
+<<<<<<< HEAD
   "proxy": "http://[::1]:5000/",
+=======
+  "proxy": "http://[::1]:localhost:4000",
+>>>>>>> ec7490c731d9c694f4a43ebc5f1416258746a46b
   "devDependencies": {
     "eslint-plugin-react": "^7.29.4",
     "nodemon": "^2.0.16"

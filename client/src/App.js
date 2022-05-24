@@ -36,6 +36,8 @@ const App = () => {
 
           <Route path='/compare' element={<Compare />} />
 
+
+
           {/* Auth routes - starting with register */}
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
