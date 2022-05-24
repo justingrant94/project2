@@ -105,7 +105,7 @@ export default [
     category: 'products',
     value: 24300,
   },
-<<<<<<< HEAD
+
   {
     name: 'Gordan Ramsey',
     description: 'The only chef on the Celebrity 100, Ramsay has 35 restaurants worldwide and stars in TV shows including "Hells Kitchen" and "MasterChef."',
