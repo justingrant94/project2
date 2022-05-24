@@ -137,7 +137,7 @@ const Compare = () => {
 
 
 
-      {/* <Container className='item-list' >
+      <Container className='item-list' >
         {items.map((items) => {
           const { _id, name, image, description, value } = items
           // console.log(_id)
@@ -158,7 +158,7 @@ const Compare = () => {
           )
         })}
 
-      </Container> */}
+      </Container>
     </div >
   )
 }
