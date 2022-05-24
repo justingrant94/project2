@@ -7,8 +7,14 @@ import LeftColumn from './LeftColumn'
 import ListNavBar from './ListNavBar'
 import MiddleColumnCards from './MiddleColumnCards'
 import RightColumn from './RightColumn'
+import { getPayload } from '../../helpers/auth'
 
 const Compare = () => {
+
+  const payload = getPayload()
+
+  const [leftItem, setLeftItem] = useState({})
+  const [currentUser, setCurrentUser] = useState({})
 
   const [items, setItems] = useState([])
   const [filteredItems, setFilteredItems] = useState([])
@@ -22,43 +28,33 @@ const Compare = () => {
   const [errors, setErrors] = useState(false)
 
   useEffect(() => {
+    const getCurrentUser = async () => {
+      try {
+        const { data } = await axios.get(`/api/users/${payload.sub}`)
+        setCurrentUser(data)
+      } catch (err) {
+        console.log(err)
+        setErrors(true)
+      }
+    }
+    getCurrentUser()
+  }, [payload.sub])
+
+  useEffect(() => {
     const getItems = async () => {
       try {
         const { data } = await axios.get('/api/items')
+        console.log(data)
         setItems(data)
       } catch (error) {
         console.log(error)
         setErrors(true)
       }
     }
-
-    const getFortune400 = async () => {
-      try {
-        const { data } = await axios.get('https://forbes400.herokuapp.com/api/forbes400/')
-        setItems(data)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-
-    getFortune400()
     getItems()
-  }, []) //empty array so it only triggers first render
+  }, [])
 
-  // This changes the gender of the the state
-  const handleChange = (e) => {
-    console.log(e.target.value)
-    const newObj = {
-      ...filters,
-      [e.target.name]: e.target.value,
-    }
-    setFilters(newObj)
-  }
-
-  // //? useEffect to track the gender differences. 
   useEffect(() => {
-    //checking there are genders to loop through in the first place
-    //on initial page load, the genders wukk empty so we dont need to create a list
     if (items.length) {
       const genderList = []
       items.forEach(item => {
@@ -71,45 +67,50 @@ const Compare = () => {
     }
   }, [items])
 
-  // useEffect that filtered the billionaires and adds them into the filtered state.
   useEffect(() => {
-    //only filters billionaires if there are people to filter.
     if (items.length) {
-      //generate search term 
+      const categoryItems = items.filter(item => item.category === filters.category)
       const regexSearch = new RegExp(filters.searchTerm, 'i')
-      //filter through billionaires and matching people to filtered billionaire state
-
-      const filtered = items.filter(billionaire => {
-        return regexSearch.test(billionaire.personName) && (billionaire.gender === filters.gender || filters.gender === 'All')
+      const filtered = categoryItems.filter(item => {
+        return regexSearch.test(item.name)
       })
       setFilteredItems(filtered)
     }
   }, [filters, items])
 
+  useEffect(() => {
+
+  }, [leftItem])
+
+  const handleChange = (e) => {
+    console.log(e.target.value)
+    const newObj = {
+      ...filters,
+      [e.target.name]: e.target.value,
+    }
+    setFilters(newObj)
+  }
+
   return (
     <>
       {/*LEFT*/}
-      <LeftColumn />
+      <LeftColumn item={leftItem} />
       <div className='center-container'>
 
         {/*MIDDLE*/}
         <ListNavBar filters={filters} setFilters={setFilters} handleChange={handleChange} genders={genders} />
-        <MiddleColumnCards filteredItems={filteredItems} items={items} />
+        <MiddleColumnCards filteredItems={filteredItems} items={items} setLeftItem={setLeftItem} currentUser={currentUser}/>
 
       </div >
       {/*Right*/}
-      <RightColumn />
+      <RightColumn currentUser={currentUser} />
     </>
   )
 }
 
 export default Compare
 
-<<<<<<< HEAD:client/src/components/compare/Compare.js
 /* <Container className='item-list' >
-=======
-      <Container className='item-list' >
->>>>>>> ec7490c731d9c694f4a43ebc5f1416258746a46b:client/src/components/fortunefourhundred/Compare.js
         {items.map((items) => {
           const { _id, name, image, description, value } = items
           // console.log(_id)
@@ -130,13 +131,4 @@ export default Compare
             )
         })}
 
-<<<<<<< HEAD:client/src/components/compare/Compare.js
       </Container> */
-=======
-      </Container>
-    </div >
-  )
-}
-
-export default Compare
->>>>>>> ec7490c731d9c694f4a43ebc5f1416258746a46b:client/src/components/fortunefourhundred/Compare.js
