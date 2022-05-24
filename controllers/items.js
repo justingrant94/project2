@@ -20,7 +20,6 @@ export const getOneItem = async (req, res) => {
   }
 }
 
-
 export const updateItem = async (req, res) => {
   const { id } = req.params
   const { body: editItem, verifiedUser } = req

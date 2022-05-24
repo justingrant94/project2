@@ -5,8 +5,8 @@ import axios from 'axios'
 
 import PageNavbar from './components/default/PageNavbar'
 import Home from './components/Home'
-import Compare from './components/fortunefourhundred/Compare'
-import Inspect from './components/Inspect'
+import Compare from './components/compare/Compare'
+import Inspect from './components/inspect/Inspect'
 import NotFound from './components/default/NotFound'
 
 //Auth Components
@@ -17,14 +17,14 @@ const App = () => {
 
   // console.log(process.env.REACT_APP_TOKEN)
 
-  useEffect(() => {
-    const getData = async () => {
-      const { data } = await axios.get('/api/items')
-      console.log(data)
-    }
-    getData()
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const { data } = await axios.get('/api/items')
+  //     console.log(data)
+  //   }
+  //   getData()
 
-  })
+  // })
 
   return (
     <main className='site-wrapper'>
@@ -39,8 +39,7 @@ const App = () => {
           {/* Auth routes - starting with register */}
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/inspect/:id" element={<Inspect />} />
-
+          <Route path="/inspect/:id/:type" element={<Inspect />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

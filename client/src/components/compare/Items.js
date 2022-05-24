@@ -7,7 +7,7 @@ import axios from 'axios'
 const Items = () => {
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axios.get('/items')
+      const { data } = await axios.get('/api/items')
     }
     getData()
   })
