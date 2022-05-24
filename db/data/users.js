@@ -17,10 +17,10 @@ export default [
   },
   {
     name: 'Drew Burgess',
-    email: 'drew@email.com',
+    email: 'yellafella247@gmail.com',
     salary: 30000,
     savings: 5000,
-    password: 'pass',
-    passwordConfirmation: 'pass'
+    password: 'BigBootyWomen69',
+    passwordConfirmation: 'BigBootyWomen69'
   }
 ]

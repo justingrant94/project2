@@ -18,7 +18,7 @@ router.route('/items/:id')
   .get(getOneItem)
 
 //BASKET ROUTES  
-router.route('/items/:id/basket') // Adding an item to the users Basket
+router.route('/users/:userId/basket') // Adding an item to the users Basket
   .post(secureRoute, addBasketItems)
 
 router.route('/users/:userId/basket/:basketItemId')
