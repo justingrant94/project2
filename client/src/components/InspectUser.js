@@ -48,11 +48,7 @@ const InspectUser = () => {
 
   const handleDelete = async () => {
     try {
-<<<<<<< HEAD:client/src/components/Inspect.js
-      await axios.delete('/api/users/' + id) // ! Change !
-=======
       await axios.delete(`/api/users/${id}`)
->>>>>>> bb78ee5ed63e3c4187e02bb7a68d30d74360f363:client/src/components/InspectUser.js
     } catch (err) {
       console.log(err)
       setErrors(true)

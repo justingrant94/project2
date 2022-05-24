@@ -622,7 +622,7 @@ export default [
 
 
 
-=======
+
   // {
   //   name: 'Guinea Pig Armor',
   //   description: 'When the vanguard/s been obliterated, you/re forced to send in your secret weapon - guinea pigs. But these berzerkers need armour too, even though it/s pretty damn expensive.',
@@ -630,7 +630,6 @@ export default [
   //   category: 'celebrity',
   //   value: 24300,
   // },
->>>>>>> development
 
 
 ]
