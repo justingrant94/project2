@@ -3,15 +3,16 @@ import Card from 'react-bootstrap/Card'
 
 const OneCard = (item) => {
   const { id, squareImage, personName, finalWorth } = item
-  const handleAdd = (e) => {
-    // you want to trigger every time the button is clicked
-  }
 
+  const handleAdd = (e) => {
+    // ! To basket !
+  }
+  
   const handleRemove = (e) => {
+    // ! To basket !
   }
 
   return (
-    ///the left column of the billionaires
     <Card key={id} className="one-card">
       <Card.Img variant='top' src={squareImage} />
       <Card.Body className='bg-light'>
@@ -23,12 +24,7 @@ const OneCard = (item) => {
         <button onClick={handleRemove} type='button'>-</button>
       </Card.Body>
     </Card>
-
-
   )
-
-
-
 }
 
 export default OneCard
