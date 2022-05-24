@@ -1,8 +1,8 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
 
-const OneCard = (billionaire) => {
-  const { uri, squareImage, personName, finalWorth } = billionaire
+const OneCard = (item) => {
+  const { id, squareImage, personName, finalWorth } = item
   const handleAdd = (e) => {
     // you want to trigger every time the button is clicked
   }
@@ -12,7 +12,7 @@ const OneCard = (billionaire) => {
 
   return (
     ///the left column of the billionaires
-    <Card key={uri} className="one-card">
+    <Card key={id} className="one-card">
       <Card.Img variant='top' src={squareImage} />
       <Card.Body className='bg-light'>
         <Card.Title className='text-center mb-1'>
