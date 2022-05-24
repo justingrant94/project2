@@ -1,81 +1,21 @@
 import React, { useState, useEffect } from 'react'
-import { useParams, Link, useNavigate } from 'react-router-dom'
-import axios from 'axios'
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 
-import anonProfile from '../assets/anonProfile.jpg'
+import anonProfile from '../../assets/anonProfile.jpg'
 
-const InspectUser = () => {
-  const { id } = useParams()
-
-  const [editMode, setEditMode] = useState(false)
-  const [content, setContent] = useState({
-    image: '',
-    name: 'Drew Burgess',
-    salary: 23000,
-    savings: 2800,
-    description: 'Drew Burgess, best person alive.',
-    public: false,
-  })
-
-  const [errors, setErrors] = useState(false)
-
-  useEffect(() => {
-    const getContent = async () => {
-      try {
-        const { data } = await axios.get(`/api/users/${id}`)
-        setContent(data)
-      } catch (err) {
-        console.log(err)
-        setErrors(true)
-      }
-    }
-    getContent()
-  }, [id])
-
-  const handleEdit = () => {
-    setEditMode(!editMode)
-  }
-
-  const handleSave = () => {
-
-
-
-    setEditMode(!editMode)
-  }
-
-  const handleDelete = async () => {
-    try {
-      await axios.delete(`/api/users/${id}`)
-    } catch (err) {
-      console.log(err)
-      setErrors(true)
-    }
-  }
-
-  const handleSavingsChange = () => {
-    setContent({
-      ...content,
-      savings: 23000,
-    })
-  }
-
-  const handleFieldChange = (e) => {
-    setContent({ ...content, [e.target.name]: e.target.value })
-    setErrors({ ...errors, [e.target.name]: '' })
-  }
+const InspectUser = ({ editMode, user, handleFieldChange, handleGenericChange, handleSave, handleEdit, handleDelete }) => {
 
   return (
     <Container className='inspect-container bg-light'>
       <Row className='image-container field'>
-        <img src={content.image ? content.image : anonProfile} />
+        <img src={user.image ? user.image : anonProfile} />
         {
           editMode
           &&
           <>
-            <input type='text' name='image' value={content.image} onChange={handleFieldChange} />
+            <input type='text' name='image' value={user.image} onChange={handleFieldChange} />
             <sub>Make sure to use a valid online URL.</sub>
           </>
         }
@@ -85,9 +25,9 @@ const InspectUser = () => {
         {
           editMode
             ?
-            <input type='text' name='name' value={content.name} />
+            <input type='text' name='name' value={user.name} />
             :
-            <p>{content.name}</p>
+            <p>{user.name}</p>
         }
       </Row>
       <Row className='worth-container field'>
@@ -99,10 +39,10 @@ const InspectUser = () => {
               ?
               <>
                 <span>£</span>
-                <input type='text' name='salary' value={content.salary} />
+                <input type='text' name='salary' value={user.salary} onChange={handleGenericChange}/>
               </>
               :
-              <p>{'£' + content.salary}</p>
+              <p>{'£' + user.salary}</p>
           }
         </Row>
         <Row className='savings-row'>
@@ -112,10 +52,10 @@ const InspectUser = () => {
               ?
               <div>
                 <span>£</span>
-                <input type='text' name='savings' value={content.savings} onChange={handleSavingsChange} />
+                <input type='text' name='savings' value={user.savings} onChange={handleGenericChange} />
               </div>
               :
-              <p>{'£' + content.savings}</p>
+              <p>{'£' + user.savings}</p>
           }
         </Row>
       </Row>
@@ -125,9 +65,9 @@ const InspectUser = () => {
           {
             editMode
               ?
-              <textarea name='description' value={content.description} />
+              <textarea name='description' value={user.description} />
               :
-              <p>{content.description}</p>
+              <p>{user.description}</p>
           }
         </div>
       </Row>
@@ -143,7 +83,7 @@ const InspectUser = () => {
       </Row>
       <Row className='public-container field'>
         <h2>Set to public?</h2>
-        <input type='checkbox' value={content.public} />
+        <input type='checkbox' value={user.public} />
         {
           editMode &&
           <sub>Public items/accounts can be seen (but not edited) by other users.</sub>

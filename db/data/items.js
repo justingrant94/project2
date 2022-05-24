@@ -17,14 +17,14 @@ export default [
   {
     name: 'Antilia',
     description: "Antilia, located in Mumbai is owned by Asia's richest billionaire Mukesh Ambani. This huge 27-storey house has luxury amenities like three helipads, air traffic control, parking space for 168-cars, a ballroom, 9 high-speed elevators, a 50-seat theatre, and many more. It is designed in such a way that it can survive an earthquake of magnitude 8.0",
-    image: 'https://upload.wikimedia.org/wikipedia/en/9/95/Test_image.jpg',
+    image: 'https://assets.architecturaldigest.in/photos/600820fba28465f75014b9bb/2:3/w_511,h_767,c_limit/mukesh-ambani-antilla-home-mumbai-1366x768.jpg',
     category: 'products',
     value: 2000000000,
   },
   {
     name: 'Gold-plated Bugatti Veyron',
     description: 'American Rapper Flo Rida is the proud owner of this gold-plated Bugatti. The car has amazing speed that goes from 0-100 in just 2.8 seconds.',
-    image: 'h',
+    image: '',
     category: 'products',
     value: 10000000,
   },
