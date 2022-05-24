@@ -1,13 +1,13 @@
 export default [
   {
     name: 'Super Yacht',
-    description: 'Roman Abromovich/s Super Yacht',
-    image: 'https://upload.wikimedia.org/wikipedia/en/9/95/Test_image.jpg',
+    description: "Roman Abromovichs Super Yacht",
+    image: 'https://s1.cdn.autoevolution.com/images/news/roman-abramovichs-eclipse-holds-its-own-as-worlds-most-expensive-superyacht-141067-7.jpg',
     category: 'products',
     value: 700000000,
   },
   {
-    name: 'Yacht History Supreme',
+    name: "Yacht History Supreme",
     description: 'History Supreme is the most expensive yacht in the world which is worth approximately $4.8 Billion. This yacht which was designed by Stuart Hughes, a world-famous UK-based luxury designer took almost 3 years to complete. This pricey 100-foot vessel was bought by a Malaysian Businessman for a whopping 4.5 billion dollars.',
     image: 'https://cdn.thetealmango.com/wp-content/uploads/2021/08/History-Supreme.jpg',
     category: 'products',
@@ -16,7 +16,7 @@ export default [
 
   {
     name: 'Antilia',
-    description: 'Antilia, located in Mumbai is owned by Asia/s richest billionaire Mukesh Ambani. This huge 27-storey house has luxury amenities like three helipads, air traffic control, parking space for 168-cars, a ballroom, 9 high-speed elevators, a 50-seat theatre, and many more. It is designed in such a way that it can survive an earthquake of magnitude 8.0',
+    description: "Antilia, located in Mumbai is owned by Asia's richest billionaire Mukesh Ambani. This huge 27-storey house has luxury amenities like three helipads, air traffic control, parking space for 168-cars, a ballroom, 9 high-speed elevators, a 50-seat theatre, and many more. It is designed in such a way that it can survive an earthquake of magnitude 8.0",
     image: 'https://upload.wikimedia.org/wikipedia/en/9/95/Test_image.jpg',
     category: 'products',
     value: 2000000000,
@@ -30,7 +30,7 @@ export default [
   },
   {
     name: 'Saudi Prince Alwaleed bin Talal/s Airbus A380',
-    description: 'The world/s most expensive private jet belongs to Prince Alwaleed bin Talal of Saudi Arabia who owns an Airbus A380 with a value tag of over 500 million USD. The 550 meter-squared aircraft has been lavishly furnished to accommodate its own concert hall, Turkish bath, garage space, and even a stable for transporting horses and camels. Not forgetting the Prince/s exquisite throne and a prayer room that rotates to face Mecca from any direction. ',
+    description: "The world's most expensive private jet belongs to Prince Alwaleed bin Talal of Saudi Arabia who owns an Airbus A380 with a value tag of over 500 million USD. The 550 meter-squared aircraft has been lavishly furnished to accommodate its own concert hall, Turkish bath, garage space, and even a stable for transporting horses and camels. Not forgetting the Prince's exquisite throne and a prayer room that rotates to face Mecca from any direction. ",
     image: 'https://upload.wikimedia.org/wikipedia/en/9/95/Test_image.jpg',
     category: 'products',
     value: 502000000,
@@ -44,7 +44,7 @@ export default [
   },
   {
     name: 'Salvator Mundi bY Leondardo da Vinci',
-    description: 'At an auction held at Christie/s New York in 2016 during a contemporary art event, Salvator Mundi by Leonardo da Vinci turned into the most expensive painting ever sold, selling for $450 million at the end of a nineteen-minute bidding war.',
+    description: "At an auction held at Christie's New York in 2016 during a contemporary art event, Salvator Mundi by Leonardo da Vinci turned into the most expensive painting ever sold, selling for $450 million at the end of a nineteen-minute bidding war.",
     image: 'https://upload.wikimedia.org/wikipedia/en/9/95/Test_image.jpg',
     category: 'products',
     value: 450000000,
@@ -58,13 +58,13 @@ export default [
   },
   {
     name: 'Greywacke Statue Tribute to Isis',
-    description: 'If you visit Egypt, you/ll see strong ties of pagan beliefs dating back for millennia. One of the most iconic Egyptian goddesses is Isis. She is a deity associated with healing, rites of the dead, and motherhood. In about 664-525 B.C., a greywacke statue was carved as a worship relic. It/s believed that it was put in a public place in Alexandria where worshippers could ask for blessings of healing and comfort. It was acquired by a French noble family sometime in the 19th century, and was then sold at auction in a feisty bidding war that raised the value to nearly $6 million!',
+    description: "If you visit Egypt, you'll see strong ties of pagan beliefs dating back for millennia. One of the most iconic Egyptian goddesses is Isis. She is a deity associated with healing, rites of the dead, and motherhood. In about 664-525 B.C., a greywacke statue was carved as a worship relic. It/s believed that it was put in a public place in Alexandria where worshippers could ask for blessings of healing and comfort. It was acquired by a French noble family sometime in the 19th century, and was then sold at auction in a feisty bidding war that raised the value to nearly $6 million!",
     image: 'h',
     category: 'products',
     value: 6000000,
   },
   {
-    name: 'Pak/s /The Merge/ NFT',
+    name: "Pak's, The Merge NFT",
     description: 'The Merge officially became the most expensive NFT ever sold on December 2, 2021, with almost 30,000 collectors pitching together for a total cost of $91.8m.',
     image: 'https://www.dexerto.com/wp-content/uploads/2021/10/08/pak-merge-nft.jpeg.webp',
     category: 'products',
@@ -72,7 +72,7 @@ export default [
   },
   {
     name: 'Golden Toilet Paper Roll',
-    description: 'An Australian company that goes by the name Toilet Paper Man is actually selling the world/s most expensive roll of toilet paper for $1.2 million… yeah seriously. According to their website, the toilet paper comes in 24 carat gold and is 3ply. Also, as you use the toilet paper 24 carat gold flakes fall onto the floor adding yet another level of sophistication. But hey if you do decide to buy it they will personally deliver it to your home accompanied by a bottle of Champagne.',
+    description: "An Australian company that goes by the name Toilet Paper Man is actually selling the world's most expensive roll of toilet paper for $1.2 million… yeah seriously. According to their website, the toilet paper comes in 24 carat gold and is 3ply. Also, as you use the toilet paper 24 carat gold flakes fall onto the floor adding yet another level of sophistication. But hey if you do decide to buy it they will personally deliver it to your home accompanied by a bottle of Champagne.",
     image: 'h',
     category: 'products',
     value: 1200000,
@@ -85,7 +85,7 @@ export default [
     value: 1990000,
   },
   {
-    name: 'A night on the Lover/s Deep Luxury Submarine Hotel',
+    name: "A night on the Lover's Deep Luxury Submarine Hotel",
     description: 'From $292,000 per night, lovers can spend an evening submerged amid beautiful marine life, the peaceful blue hues of the ocean, and the chic interiors of their own private submarine haven',
     image: 'h',
     category: 'products',
@@ -93,14 +93,14 @@ export default [
   },
   {
     name: 'Diamond Teabag',
-    description: 'This was made by a British (of course) company called Boodles jewellers. It was hand-crafted using 280 diamonds and I have a suspicious feeling it won/t be getting put to use any time soon.',
+    description: "This was made by a British (of course) company called Boodles jewellers. It was hand-crafted using 280 diamonds and I have a suspicious feeling it won't be getting put to use any time soon.",
     image: 'h',
     category: 'products',
     value: 14000,
   },
   {
     name: 'Guinea Pig Armor',
-    description: 'When the vanguard/s been obliterated, you/re forced to send in your secret weapon - guinea pigs. But these berzerkers need armour too, even though it/s pretty damn expensive.',
+    description: "When the vanguard's been obliterated, you're forced to send in your secret weapon - guinea pigs. But these berzerkers need armour too, even though it's pretty damn expensive.",
     image: 'h',
     category: 'products',
     value: 24300,
