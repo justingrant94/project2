@@ -1,36 +1,45 @@
 import User from '../models/users.js'
+import mongoose from 'mongoose'
 
 //Method Add Basket Items
 // /items/:id/basket
 
 export const addBasketItems = async (req, res) => {
   const { id } = req.params
-  console.log('id ->', id)
+
 
   try {
     // console.log(User.findById(id))
     const userToUpdate = await User.findById(id)
-    console.log('user to update', userToUpdate)
-    
+    // console.log('user to update', userToUpdate)
+
     //Create an item in a basket with an owner
+    
     const basketItem = { ...req.body }
-    console.log('basket to update ->', basketItem )
-    console.log(basketItem.itemId, userToUpdate)
-    const condVariable = userToUpdate.basket.findIndex(item => item.itemId === basketItem.itemId)
     
-    console.log('conditional Variable --->', condVariable)
-    if (condVariable === -1){
+    // Set new item to be true so that if it is we can push it later
+    // If the new item is not true we can use it in our forEach loop to increment the quantity by 1
+    let newItem = true;
+
+    console.log('basket item to update ->', basketItem)
+    // console.log(basketItem.itemId, userToUpdate.basket)
+    userToUpdate.basket.forEach(element => {
+      // console.log('element', element.itemId.toHexString());
+      if(element.itemId.toHexString() === basketItem.itemId){
+
+        element.quantity += 1
+        console.log('quantity', basketItem.quantity);
+        newItem = false;
+        // console.log('already in basket');
+      }
+    });
+
+
+    if(newItem === true) {
       userToUpdate.basket.push(basketItem)
-      console.log('user ->', userToUpdate)
-    } else {
-      userToUpdate.basket[condVariable].quantity += 1
     }
-
-    //Add basketWithOwner
-
+  
     
-
-    //Save
     await userToUpdate.save()
 
 
@@ -41,6 +50,8 @@ export const addBasketItems = async (req, res) => {
   }
 }
 
+
+
 //Method remove items from basket 
 // users/:id/basket/:basketId
 export const removeBasketItem = async (req, res) => {
@@ -48,39 +59,44 @@ export const removeBasketItem = async (req, res) => {
   try {
     const user = await User.findById(userId)
     if (!user) throw new Error('Not found')
-    // console.log(user)
 
     //get basket to delete
     const basketItemToDelete = user.basket.id(basketItemId)
     console.log('basketItemToDelete', basketItemToDelete.itemId)
-
-    
-    // const basketItemToDelete = User.basket.findOneAndDelete({itemId: basketItemId})
   
     if (!basketItemToDelete) throw new Error('Basket item not found!')
     console.log('Basket item to delete ->', basketItemToDelete)
     // If the verifiedUser is the owner of the basket item then we can delete it
     // Here we'll check to see if they are
-
-
-    // console.log('Verified user ---->', req.verifiedUser._id)
-    // console.log('Basket item to delete ->', basketItemToDelete)
-    
-    //This
+  
     if (!basketItemToDelete.owner.equals(req.verifiedUser._id)) throw new Error('unauthorised')
     
+    console.log('basket item to update ->', basketItemToDelete.itemId)
 
-    // First we'll need to remove the sibdocument from the basket array
-    await basketItemToDelete.remove()
+    //Go through each documents itemId and convert the ObjectId into a string with toHexString
+    //Check if the element itemId is equal to the basketItem itemId
+    // If it is decrease the quantity by 1
 
+    user.basket.forEach(element => {
+  
+      if(element.itemId.toHexString() === basketItemToDelete.itemId.toHexString()){
+
+        element.quantity -= 1
+        console.log('quantity', basketItemToDelete.quantity)
+  
+      }
+    })
+
+    // If the basketItemToDeletes quantity is eqaul to 0 remove the item from the basket all together
+    if(basketItemToDelete.quantity === 0) {
+      await basketItemToDelete.remove()
+    }
     //Secondly we'll need to save the document
     await user.save()
 
     return res.sendStatus(204)
 
 
-
-    // console.log(user.basket)
   } catch (err) {
     console.log(err)
     return res.status(401).json({ message: 'unauthorised' })
