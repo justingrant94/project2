@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,iBAAiB,CAAC;EAChB,KAAK,EAAE,mBAAmB;EAE1B,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,MAAM;EACnB,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,IAAI;EACjB,WAAW,EAAE,IAAI;CAElB;;AAUD,AAAA,UAAU,CAAC;EACT,OAAO,EAAE,CAAC;CACX",
+    "sources": [
+        "middlecontainer.scss"
+    ],
+    "names": [],
+    "file": "middlecontainer.css"
+}
