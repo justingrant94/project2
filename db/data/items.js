@@ -382,11 +382,7 @@ export default [
   {
     name: 'Bill Gates',
     description: 'Bill Gates turned his fortune from software firm Microsoft into a diversified fortune including investments zero-carbon energy',
-<<<<<<< HEAD
-    image: 'https://imageio.forbes.com/specials-images/imageserve/5f4ebe0c87612dab4f12a597/0x0.jpg?format=jpg&crop=3392,3395,x292,y592,safe&height=416&width=416&fit=bounds', // Needs a new picture
-=======
     image: 'https://imageio.forbes.com/specials-images/imageserve/5f4ebe0c87612dab4f12a597/0x0.jpg',
->>>>>>> development
     category: 'fortune400',
     value: 134000000000,
   },
