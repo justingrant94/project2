@@ -70,13 +70,10 @@ export const removeBasketItem = async (req, res) => {
     // Here we'll check to see if they are
   
     // if (!basketItemToDelete.owner.equals(req.verifiedUser._id)) throw new Error('unauthorised')
-    
     console.log('basket item to update ->', basketItemToDelete.itemId)
-
     //Go through each documents itemId and convert the ObjectId into a string with toHexString
     //Check if the element itemId is equal to the basketItem itemId
     // If it is decrease the quantity by 1
-
     user.basket.forEach(element => {
   
       if(element.itemId.toHexString() === basketItemToDelete.itemId.toHexString()){
@@ -86,7 +83,6 @@ export const removeBasketItem = async (req, res) => {
   
       }
     })
-
     // If the basketItemToDeletes quantity is eqaul to 0 remove the item from the basket all together
     if(basketItemToDelete.quantity === 0) {
       await basketItemToDelete.remove()

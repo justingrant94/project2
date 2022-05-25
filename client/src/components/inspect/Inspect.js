@@ -11,19 +11,19 @@ const Inspect = () => {
   const [editMode, setEditMode] = useState(false)
   const [content, setContent] = useState(() => {
     if (type === 'user') return ({
+      name: 'John/Jane Doe',
+      salary: 0,
+      savings: 0,
+      description: 'Blah-die blah.',
       image: '',
-      name: 'Drew Burgess',
-      salary: 23000,
-      savings: 2800,
-      description: 'Drew Burgess, best person alive.',
       public: false,
     })
     else if (type === 'item') return ({
-      name: 'Gold-plated Bugatti Veyron',
-      description: 'American Rapper Flo Rida is the proud owner of this gold-plated Bugatti. The car has amazing speed that goes from 0-100 in just 2.8 seconds.',
+      name: 'Generic Item',
+      description: 'Blah-die blah.',
       image: '',
       category: 'products',
-      value: 10000000,
+      value: 0,
     })
   })
 

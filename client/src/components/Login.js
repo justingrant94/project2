@@ -15,9 +15,15 @@ const Login = () => {
 
   const [errors, setErrors] = useState(false)
 
-  const handleSubmit = async () => {
+  const setTokenToLocalStorage = (token) => {
+    window.localStorage.setItem('sei-63-cheesebored', token)
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
     try {
       const { data } = await axios.post('/api/login/', formData)
+      setTokenToLocalStorage(data.token)
       console.log('Submitted')
       navigate('/compare')
     } catch (err) {

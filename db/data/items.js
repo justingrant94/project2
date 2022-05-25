@@ -52,7 +52,7 @@ export default [
   {
     name: 'Buckingham Palace',
     description: 'Buckingham Palace is a London royal residence and the administrative headquarters of the monarch of the United Kingdom. Located in the City of Westminster, the palace is often at the centre of state occasions and royal hospitality',
-    image: 'h',
+    image: '',
     category: 'products',
     value: 67000000000,
   },
@@ -80,14 +80,14 @@ export default [
   {
     name: 'Moon Star Shoes By Antoni Vietri',
     description: 'Yup, you heard that right. Worth almost $20 million, this pair of heels has been crafted with solid gold, 30 carats of diamond, and meteorite from 1576. Yes, that stuff from outer space. It debuted in Dubai as part of MIDE Fashion Week. These pumps are a statement-piece modeled after the Burj Khalifa. The solid gold heels are shaped like the skyscraper while the vamp is studded with diamonds. Antonio Vietri is infamous for designing the world/s first 24k gold shoes in 2017 which were priced at a hefty $32,000. These were delivered to buyers via helicopters. Talk about over the top.',
-    image: 'h',
+    image: '',
     category: 'products',
     value: 1990000,
   },
   {
     name: "A night on the Lover's Deep Luxury Submarine Hotel",
     description: 'From $292,000 per night, lovers can spend an evening submerged amid beautiful marine life, the peaceful blue hues of the ocean, and the chic interiors of their own private submarine haven',
-    image: 'h',
+    image: '',
     category: 'products',
     value: 292000,
   },
@@ -383,7 +383,7 @@ export default [
   {
     name: 'Bill Gates',
     description: 'Bill Gates turned his fortune from software firm Microsoft into a diversified fortune including investments zero-carbon energy',
-    image: 'https://imageio.forbes.com/specials-images/imagese…95,x292,y592,safe&height=416&width=416&fit=bounds',
+    image: 'https://imageio.forbes.com/specials-images/imageserve/5f4ebe0c87612dab4f12a597/0x0.jpg',
     category: 'fortune400',
     value: '134000000000',
   },
