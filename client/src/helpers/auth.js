@@ -17,8 +17,8 @@ export const userIsAuthenticated = () => {
   return currentTime < payload.exp
 }
 
-export const userIsOwner = (singleBread) => {
+export const userIsOwner = (singleItem) => {
   const payload = getPayload()
   if (!payload) return
-  return singleBread.addedBy._id === payload.sub
+  return singleItem.addedBy._id === payload.sub
 }

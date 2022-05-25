@@ -4,6 +4,7 @@ import axios from 'axios'
 
 import InspectItem from './InspectItem'
 import InspectUser from './InspectUser'
+import { userIsOwner, getTokenFromLocalStorage } from '../../helpers/auth'
 
 const Inspect = () => {
   const { id, type } = useParams()
@@ -42,12 +43,22 @@ const Inspect = () => {
     getContent()
   }, [id])
 
+  // useEffect(() => {
+  //   if (content) {
+  //     !userIsOwner(content) && setEditMode(false)
+  //   }
+  // }, [content, editMode])
+
   const handleEdit = () => setEditMode(!editMode)
 
   const handleSave = async () => {
     try {
-      await axios.put(`/api/${type}s/${id}`)
-      setEditMode(!editMode)
+      await axios.put(`/api/${type}s/${id}`, content, {
+        headers: {
+          Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+        },
+      })
+      setEditMode(false)
     } catch (err) {
       console.log(err)
       setErrors(true)
@@ -56,7 +67,7 @@ const Inspect = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`/api/users/${id}`)
+      await axios.delete(`/api/${type}s/${id}`)
     } catch (err) {
       console.log(err)
       setErrors(true)
@@ -74,7 +85,7 @@ const Inspect = () => {
     setContent({ ...content, [e.target.name]: e.target.value })
     setErrors({ ...errors, [e.target.name]: '' })
   }
-
+  
   return (
     <>
       {

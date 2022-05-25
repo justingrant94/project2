@@ -32,11 +32,7 @@ const App = () => {
         <PageNavbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <PageNavbar /> */}
-
           <Route path='/compare' element={<Compare />} />
-
-
 
           {/* Auth routes - starting with register */}
           <Route path="/register" element={<Register />} />

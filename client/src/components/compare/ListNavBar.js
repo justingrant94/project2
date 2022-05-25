@@ -16,18 +16,14 @@ const ListNavBar = ({ filters, setFilters, handleChange, genders }) => {
 
   return (
     <>
-      <Container className='list-nav bg-light'>
-        <Navbar bg='light' expand='sm' >
-          <Navbar.Toggle aria-controls='basic-navbar-nav' />
-          <Navbar.Collapse id='basic-navbar-nav' className='justify-content-end'>
-            <button onClick={handleButtonClick} name='fortune400'>Fortune400</button>
-            <button onClick={handleButtonClick} name='products'>Products</button>
-            <button onClick={handleButtonClick} name='misc'>Misc</button>
-            <button onClick={handleButtonClick} name='users'>Users</button>
-            <button onClick={handleButtonClick} name='celebrities'>Celebrities</button>
-          </Navbar.Collapse>
-        </Navbar>
-      </Container>
+      <Navbar className='list-nav bg-light'>
+        <Navbar.Toggle aria-controls='basic-navbar-nav' />
+        <Navbar.Collapse id='basic-navbar-nav' className=''>
+          <button onClick={handleButtonClick} name='fortune400'>Fortune400</button>
+          <button onClick={handleButtonClick} name='products'>Products</button>
+          <button onClick={handleButtonClick} name='celebrities'>Celebrities</button>
+        </Navbar.Collapse>
+      </Navbar>
       {
         filters.category === 'fortune400' || filters.category === 'celebrities' || filters.category === 'users'
         &&

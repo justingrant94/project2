@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -7,8 +8,15 @@ import anonProfile from '../../assets/anonProfile.jpg'
 
 const InspectItem = ({ editMode, item, handleFieldChange, handleSave, handleEdit, handleDelete }) => {
 
+  const navigate = useNavigate()
+
+  const [formData, setFormData] = useState({
+    ...item,
+  })
+
   return (
     <Container className='inspect-container bg-light'>
+      <button onClick={() => navigate('/compare')}>Back</button>
       <Row className='image-container field'>
         <img src={item.image ? item.image : anonProfile} />
         {
@@ -25,7 +33,7 @@ const InspectItem = ({ editMode, item, handleFieldChange, handleSave, handleEdit
         {
           editMode
             ?
-            <input type='text' name='name' value={item.name} />
+            <input type='text' name='name' value={item.name} onChange={handleFieldChange} />
             :
             <p>{item.name}</p>
         }
@@ -43,7 +51,7 @@ const InspectItem = ({ editMode, item, handleFieldChange, handleSave, handleEdit
             ?
             <>
               <span>£</span>
-              <input type='text' name='salary' value={item.salary} />
+              <input type='number' name='salary' value={item.value} onChange={handleFieldChange} />
             </>
             :
             <p>{'£' + item.value}</p>
@@ -55,7 +63,7 @@ const InspectItem = ({ editMode, item, handleFieldChange, handleSave, handleEdit
           {
             editMode
               ?
-              <textarea name='description' value={item.description} />
+              <textarea name='description' value={item.description} onChange={handleFieldChange} />
               :
               <p>{item.description}</p>
           }
@@ -71,14 +79,14 @@ const InspectItem = ({ editMode, item, handleFieldChange, handleSave, handleEdit
         }
         <button className='btn btn-success' onClick={handleDelete}>Delete</button>
       </Row>
-      <Row className='public-container field'>
+      {/* <Row className='public-container field'>
         <h2>Set to public?</h2>
         <input type='checkbox' value={item.public} />
         {
           editMode &&
           <sub>Public items/accounts can be seen (but not edited) by other users.</sub>
         }
-      </Row>
+      </Row> */}
     </Container>
   )
 }

@@ -81,7 +81,7 @@ const InspectUser = ({ editMode, user, handleFieldChange, handleGenericChange, h
         }
         <button className='btn btn-success' onClick={handleDelete}>Delete</button>
       </Row>
-      <Row className='public-container field'>
+      {/* <Row className='public-container field'>
         <h2>Set to public?</h2>
         <input type='checkbox' value={user.public} />
         {
@@ -94,7 +94,7 @@ const InspectUser = ({ editMode, user, handleFieldChange, handleGenericChange, h
         <div className='ownedItemsList'>
 
         </div>
-      </Row>
+      </Row> */}
     </Container>
   )
 }

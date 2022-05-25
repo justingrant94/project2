@@ -8,16 +8,14 @@ import Nav from 'react-bootstrap/Nav'
 const PageNavbar = () => {
 
   return (
-    < div className='hiding'>
-      <Navbar bg='light' expand='sm'>
-        <Container>
-          <Navbar.Collapse id='basic-navbar-nav' className='justify-content-end'>
-            <Nav.Link as={Link} to='/'>My Account</Nav.Link>
-            <Nav.Link as={Link} to='/'>Log out</Nav.Link>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    </div>
+    <Navbar className='main-nav' bg='light' expand='sm'>
+      <Container>
+        <Navbar.Collapse id='basic-navbar-nav' className='justify-content-end'>
+          <Nav.Link as={Link} to='/'>My Account</Nav.Link>
+          <Nav.Link as={Link} to='/'>Log out</Nav.Link>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   )
 }
 

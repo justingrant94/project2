@@ -92,7 +92,7 @@ const Compare = () => {
   }
 
   return (
-    <>
+    <div className='content'>
       {/*LEFT*/}
       <LeftColumn item={leftItem} />
       <div className='center-container'>
@@ -103,8 +103,8 @@ const Compare = () => {
 
       </div >
       {/*Right*/}
-      <RightColumn currentUser={currentUser} />
-    </>
+      <RightColumn currentUser={currentUser} leftItem={leftItem} />
+    </div>
   )
 }
 

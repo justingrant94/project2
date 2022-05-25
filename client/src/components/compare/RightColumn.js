@@ -7,10 +7,11 @@ import Row from 'react-bootstrap/Row'
 import { getTokenFromLocalStorage } from '../../helpers/auth'
 import anonProfile from '../../assets/anonProfile.jpg'
 
-const RightColumn = ({ currentUser }) => {
+const RightColumn = ({ currentUser, leftItem }) => {
 
   const [items, setItems] = useState([])
   const [basketItems, setBasketItems] = useState([])
+  const [sumOfBasket, setSumOfBasket] = useState(0)
   const [errors, setErrors] = useState(false)
 
   useEffect(() => {
@@ -36,24 +37,37 @@ const RightColumn = ({ currentUser }) => {
   }, [currentUser.basket])
 
   useEffect(() => {
-    const exchangeForActualItems = () => {
+    const exchangeForActualItems = async () => {
       console.log(items)
-      items.forEach(async (item) => {
+      const holdItems = []
+      for (let count = 0; count < items.length; count++) {
         try {
-          const { data } = await axios.get(`/api/items/${item.itemId}`)
-          console.log([...basketItems, data])
-          setBasketItems(
-            [...basketItems, data]
-          )
+          const { data } = await axios.get(`/api/items/${items[count].itemId}`)
+          holdItems.push(data)
         } catch (error) {
           console.log(error)
           setErrors(true)
         }
-      })
+      }
+      setBasketItems(holdItems)
     }
-
     exchangeForActualItems()
   }, [items])
+
+  useEffect(() => {
+
+    const getSumOfBasket = () => {
+      let sum = 0
+      for (let count = 0; count < basketItems.length; count++) {
+        const holdItem = items.find(item => item.itemId === basketItems[count]._id)
+        sum += basketItems[count].value * holdItem.quantity
+      }
+      return sum
+    }
+
+    setSumOfBasket(getSumOfBasket())
+
+  }, [basketItems])
 
   return (
     <Container className='right-container bg-light'>
@@ -74,15 +88,37 @@ const RightColumn = ({ currentUser }) => {
           <span>{'$' + currentUser.savings}</span>
         </p>
       </Row>
+
+      <Row className='worth-container field'>
+        <p>
+          <span>Total Value of Basket</span>
+          <span> ${sumOfBasket}</span>
+        </p>
+        <p>
+          <span>Relative Value</span>
+          {
+            leftItem.value
+              ?
+              <span> {Math.round((sumOfBasket / leftItem.value * 100))}%</span>
+              :
+              <span> ...%</span>
+          }
+        </p>
+      </Row>
+
       <Row className='description-container field'>
         <h2>Basket</h2>
         <ul>
           {
             basketItems.map(bItem => {
-              console.log(basketItems)
+              console.log(bItem)
               return (
                 <li key={bItem._id} className='basket-item'>
-                  <p><span>{bItem.name}</span> <span>${bItem.value}</span></p>
+                  <p>
+                    {
+                      items.find(item => item.itemId === bItem._id).quantity
+                    }x {bItem.name} ${bItem.value}
+                  </p>
                 </li>
               )
             })

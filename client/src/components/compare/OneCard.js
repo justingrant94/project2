@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 import Card from 'react-bootstrap/Card'
 
@@ -8,6 +9,8 @@ import { getTokenFromLocalStorage } from '../../helpers/auth'
 
 const OneCard = ({ item, setLeftItem, currentUser }) => {
   const { _id, image, name, value } = item
+
+  const navigate = useNavigate()
 
   const handleAdd = async (e) => {
     const basketItem = {
@@ -34,14 +37,20 @@ const OneCard = ({ item, setLeftItem, currentUser }) => {
     setLeftItem(item)
   }
 
+  const sendToInspect = () => {
+    navigate(`/inspect/${_id}/item`)
+  }
+
   return (
 
     <Card className="one-card">
-      <Card.Img variant='top' src={image ? image : anonImage} />
+      <button className='image-button' onClick={sendToInspect}>
+        <Card.Img variant='top' src={image ? image : anonImage} />
+      </button>
       <Card.Body className='bg-light'>
         <Card.Title className='text-center mb-1'>
-          <h1>Name<span>{name}</span></h1>
-          <h2>Net Worth<span>{value}</span></h2>
+          <h2>{name}</h2>
+          <h2>${value}</h2>
         </Card.Title>
         <button onClick={handleAdd} type='button'>+</button>
         <button onClick={handleRemove} type='button'>-</button>

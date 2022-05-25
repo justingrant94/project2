@@ -37,7 +37,6 @@
   },
   "proxy": "http://[::1]:5000/",
   "devDependencies": {
-    "eslint-plugin-react": "^7.29.4",
     "nodemon": "^2.0.16"
   }
 }
