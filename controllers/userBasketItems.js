@@ -69,7 +69,7 @@ export const removeBasketItem = async (req, res) => {
     // If the verifiedUser is the owner of the basket item then we can delete it
     // Here we'll check to see if they are
   
-    if (!basketItemToDelete.owner.equals(req.verifiedUser._id)) throw new Error('unauthorised')
+    // if (!basketItemToDelete.owner.equals(req.verifiedUser._id)) throw new Error('unauthorised')
     
     console.log('basket item to update ->', basketItemToDelete.itemId)
 

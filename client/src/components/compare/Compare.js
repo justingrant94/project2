@@ -105,11 +105,7 @@ const Compare = () => {
 
 export default Compare
 
-<<<<<<< HEAD:client/src/components/compare/Compare.js
 /* <Container className='item-list' >
-=======
-      <Container className='item-list' >
->>>>>>> ec7490c731d9c694f4a43ebc5f1416258746a46b:client/src/components/fortunefourhundred/Compare.js
         {items.map((items) => {
           const { _id, name, image, description, value } = items
           // console.log(_id)
@@ -130,13 +126,4 @@ export default Compare
             )
         })}
 
-<<<<<<< HEAD:client/src/components/compare/Compare.js
       </Container> */
-=======
-      </Container>
-    </div >
-  )
-}
-
-export default Compare
->>>>>>> ec7490c731d9c694f4a43ebc5f1416258746a46b:client/src/components/fortunefourhundred/Compare.js
