@@ -7,7 +7,9 @@
 **2.** Matthew Bailey
 
 A full stack project done in a team with a 1 week deadline.
+
 **Worthy:**
+
 The third project on the course, we worked in a team and the assignment was to create a full stack website in 1 week. We pondered on a few ideas but we eventually decided to go with the idea of comparing Forbes 100 billionaires with each other and also comparing it to miscellaneous items which also are some of the most expensive items in the world.
 
 Wireframe:
