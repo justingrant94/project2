@@ -1,8 +1,9 @@
 **General Assembly**
 
 **Collaborator:**
-**.** Drew Burgess
-**.** Matthew Bailey
+**1.** Drew Burgess
+
+**2.** Matthew Bailey
 
 A full stack project done in a team with a 1 week deadline.
 **Worthy:**
