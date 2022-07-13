@@ -63,7 +63,6 @@ The contents of the login function also stores the userId into setLocalStorage, 
 
 <img width="462" alt="Screenshot 2022-07-13 at 13 14 43" src="https://user-images.githubusercontent.com/73545574/178731462-47a6099d-d3d4-442b-93ac-2c490d6aa53a.png">
 
-
 During the project, we were in constant communication with one another on Zoom, we created our own Slack chat so we could send each other code (& meme’s) which kept our spirits up throughout the project, scheduled daily team stand up sessions each morning so we could discuss any challenges, talk about wins, and plan the day ahead.
 
 **Future improvements:**
