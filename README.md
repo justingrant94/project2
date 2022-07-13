@@ -55,7 +55,10 @@ Below is also the relationship that we have established once the user is logged 
 
 ![Screenshot 2022-07-04 at 15 26 20](https://user-images.githubusercontent.com/73545574/178274791-e7a76983-dd74-4371-92a6-83da81eb3497.png)
 
-With this project being a Full Stack project we delegated tasks with who felt more confident with certain aspects of the site, which I started  creating the login and register page. During the project we were in constant communication with one another on Zoom, we created our own Slack chat so we could send each other code (& meme’s) which kept our spirits up throughout the project, scheduled daily team stand up sessions each morning so we could discuss any challenges, talk about wins, and plan the day ahead.
+With this project being a Full Stack project we delegated tasks with who felt more confident with certain aspects of the site, which I started creating the login and register page with what I had to establish is once the user has registered on the site having the option to enter information such as their salary which would essentially be used once as that will give them the option to compare themselves amongst the Forbes400 list, this was a major challenge and this took me sometime to understand the logic. However, after taking some time out and conversing with my team I then realised it was somewhat of an easy task please see below on how I carried this out.
+
+<img width="288" alt="Screenshot 2022-07-13 at 13 09 53" src="https://user-images.githubusercontent.com/73545574/178730270-fb2a298f-e96e-46fa-ba58-ab959bc72d86.png">
+
 
 
 **Wins & Key Learnings:**
