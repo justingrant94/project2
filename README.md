@@ -66,14 +66,12 @@ The contents of the login function also stores the userId into setLocalStorage, 
 
 During the project, we were in constant communication with one another on Zoom, we created our own Slack chat so we could send each other code (& meme’s) which kept our spirits up throughout the project, scheduled daily team stand up sessions each morning so we could discuss any challenges, talk about wins, and plan the day ahead.
 
+**Future improvements:**
+1. The website is far from finished which I am looking to revisit and styling the page better and making sure it is user friendly.
+2. I would like to look into MongoDB further and make the user be able to do more once they are logged in.
+
 **Wins & Key Learnings:**
 1. Coding in a team of three people
 2. Delegating tasks and communicating throughout the process of what has been completed.
 3. The first project in which I worked on different branches and resolved merge conflicts using Git. Continuing on from the communication, it meant we often merged our work at the same time, as we were new to this it allowed us to help each other with troubleshooting
 4. This project was invaluable as I was able to make clear understanding of why we use functions for example and understanding that multiple things can also be stored in them, which was mind-blowing whilst learning this.
-
-**Future improvements:**
-1. The website is far from finished which I am looking to revisit and styling the page better and making sure it is user friendly.
-2. I would like to look into MongoDB further and make the user be able to do more once they are logged in.
-
-
