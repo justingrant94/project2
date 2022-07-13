@@ -75,19 +75,21 @@ As we had effectively three columns consisting of different information I wasn't
 <img width="518" alt="Screenshot 2022-07-13 at 13 41 47" src="https://user-images.githubusercontent.com/73545574/178736012-423a04b3-1ea2-4249-a33c-9502b7b75383.png">
 <img width="722" alt="Screenshot 2022-07-13 at 13 41 40" src="https://user-images.githubusercontent.com/73545574/178736004-e23afa48-5ff9-4cab-b3ef-faeeed4dba27.png">
 
-
-
-
 <img width="612" alt="Screenshot 2022-07-13 at 13 29 10" src="https://user-images.githubusercontent.com/73545574/178733670-dcd0b7d5-c369-4815-aba6-b213a493e0f3.png">
 
+**Bugs:**
+
+Currently no known bugs.
 
 
 **Future improvements:**
 1. The website is far from finished which I am looking to revisit and styling the page better and making sure it is user friendly.
 2. I would like to look into MongoDB further and make the user be able to do more once they are logged in.
+3. Adding further error handling.
+4. Making the site aesthically pleasing.
 
 **Wins & Key Learnings:**
-1. Coding in a team of three people
+1. Coding in a team of three people.
 2. Delegating tasks and communicating throughout the process of what has been completed.
-3. The first project in which I worked on different branches and resolved merge conflicts using Git. Continuing on from the communication, it meant we often merged our work at the same time, as we were new to this it allowed us to help each other with troubleshooting
+3. The first project in which I worked on different branches and resolved merge conflicts using Git. Continuing on from the communication, it meant we often merged our work at the same time, as we were new to this it allowed us to help each other with troubleshooting.
 4. This project was invaluable as I was able to make clear understanding of why we use functions for example and understanding that multiple things can also be stored in them, which was mind-blowing whilst learning this.
