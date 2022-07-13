@@ -70,6 +70,14 @@ One of the biggest challenges I faced was getting list of Billionaires to appear
 
 <img width="491" alt="Screenshot 2022-07-13 at 13 34 35" src="https://user-images.githubusercontent.com/73545574/178734661-02e916bb-67d1-42e3-b58d-b310f8d58eb0.png">
 
+As we had effectively three columns consisting of different information I wasn't exactly too sure on how this would be achieved, as the items were categorised differently some being products, celebrities and fortune400, we wanted the give the user different information if they selected the options,  It was very much uncharted territory for me and it was constant collaboration througout the project and a lot of screen sharing as it was chipped away at and progress was made. 
+
+<img width="518" alt="Screenshot 2022-07-13 at 13 41 47" src="https://user-images.githubusercontent.com/73545574/178736012-423a04b3-1ea2-4249-a33c-9502b7b75383.png">
+<img width="722" alt="Screenshot 2022-07-13 at 13 41 40" src="https://user-images.githubusercontent.com/73545574/178736004-e23afa48-5ff9-4cab-b3ef-faeeed4dba27.png">
+
+
+
+
 <img width="612" alt="Screenshot 2022-07-13 at 13 29 10" src="https://user-images.githubusercontent.com/73545574/178733670-dcd0b7d5-c369-4815-aba6-b213a493e0f3.png">
 
 
