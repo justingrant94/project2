@@ -59,7 +59,7 @@ With this project being a Full Stack project we delegated tasks with who felt mo
 
 <img width="288" alt="Screenshot 2022-07-13 at 13 09 53" src="https://user-images.githubusercontent.com/73545574/178730270-fb2a298f-e96e-46fa-ba58-ab959bc72d86.png">
 
-The contents of the login function also stores the userId into setLocalStorage, the same way as the register function above. We found this was vital as it was the only way to link the user to their own account for viewing, editing or deleting, which me and the team came to the conclussion that below made the most sense. 
+The contents of the login function also stores the userId into setLocalStorage, the same way as the register function above. We found this was vital as it was the only way to link the user to their own account for viewing, editing or deleting, which me and the team came to the conclusion that below made the most sense. 
 
 <img width="462" alt="Screenshot 2022-07-13 at 13 14 43" src="https://user-images.githubusercontent.com/73545574/178731462-47a6099d-d3d4-442b-93ac-2c490d6aa53a.png">
 
@@ -70,7 +70,7 @@ One of the biggest challenges I faced was getting list of Billionaires to appear
 
 <img width="491" alt="Screenshot 2022-07-13 at 13 34 35" src="https://user-images.githubusercontent.com/73545574/178734661-02e916bb-67d1-42e3-b58d-b310f8d58eb0.png">
 
-As we had effectively three columns consisting of different information I wasn't exactly too sure on how this would be achieved, as the items were categorised differently some being products, celebrities and fortune400, we wanted the give the user different information if they selected the options,  It was very much uncharted territory for me and it was constant collaboration througout the project and a lot of screen sharing as it was chipped away at and progress was made. 
+As we had effectively three columns consisting of different information I wasn't exactly too sure on how this would be achieved, as the items were categorised differently some being products, celebrities and fortune400, we wanted the give the user different information if they selected the options,  It was very much uncharted territory for me and it was constant collaboration throughout the project and a lot of screen sharing as it was chipped away at and progress was made. 
 
 <img width="518" alt="Screenshot 2022-07-13 at 13 41 47" src="https://user-images.githubusercontent.com/73545574/178736012-423a04b3-1ea2-4249-a33c-9502b7b75383.png">
 <img width="722" alt="Screenshot 2022-07-13 at 13 41 40" src="https://user-images.githubusercontent.com/73545574/178736004-e23afa48-5ff9-4cab-b3ef-faeeed4dba27.png">
@@ -86,7 +86,7 @@ Currently no known bugs.
 1. The website is far from finished which I am looking to revisit and styling the page better and making sure it is user friendly.
 2. I would like to look into MongoDB further and make the user be able to do more once they are logged in.
 3. Adding further error handling.
-4. Making the site aesthically pleasing.
+4. Making the site aesthetically pleasing.
 
 **Wins & Key Learnings:**
 1. Coding in a team of three people.
