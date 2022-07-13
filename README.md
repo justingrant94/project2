@@ -59,7 +59,7 @@ With this project being a Full Stack project we delegated tasks with who felt mo
 
 <img width="288" alt="Screenshot 2022-07-13 at 13 09 53" src="https://user-images.githubusercontent.com/73545574/178730270-fb2a298f-e96e-46fa-ba58-ab959bc72d86.png">
 
-The contents of the login function also stores the userId into localStorage, the same way as the register function above. We found this was vital as it was the only way to link the user to their own account for viewing, editing or deleting, which me and the team came to the conclussion that below made the most sense. 
+The contents of the login function also stores the userId into setLocalStorage, the same way as the register function above. We found this was vital as it was the only way to link the user to their own account for viewing, editing or deleting, which me and the team came to the conclussion that below made the most sense. 
 
 <img width="462" alt="Screenshot 2022-07-13 at 13 14 43" src="https://user-images.githubusercontent.com/73545574/178731462-47a6099d-d3d4-442b-93ac-2c490d6aa53a.png">
 
