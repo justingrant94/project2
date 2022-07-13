@@ -17,7 +17,7 @@ The third project on the course, we worked in a team and the assignment was to c
 ![Screenshot 2022-07-05 at 14 51 55](https://user-images.githubusercontent.com/73545574/178273703-0b4e7629-7bc8-42df-9043-8c7d9d99ede1.png)
 
 **Brief:**
-1. Build a full-stack application - by making your own backend and your own frontend
+1. Build a full-stack application - by making your own backend and your own frontend.
 2. Consume your API with a separate frontend built with React.
 3. Implement thoughtful user stories/wireframes that are significant enough to help you know which features are core MVP and which you can cut.
 4.Be deployed online so it's publicly accessible.
