@@ -65,6 +65,15 @@ The contents of the login function also stores the userId into setLocalStorage, 
 
 During the project, we were in constant communication with one another on Zoom, we created our own Slack chat so we could send each other code (& meme’s) which kept our spirits up throughout the project, scheduled daily team stand up sessions each morning so we could discuss any challenges, talk about wins, and plan the day ahead.
 
+**Challenges:**
+One of the biggest challenges I faced was getting list of Billionaires to appear on the frontend, which was created from the backend database which I have previously touched on above, which I managed to get it to show by drawing from the name, the value of the item and also a little about the description which was also created in the backend it took me a few days to try and understand how I would get it to appear but from help with my team we managed to get it to appear. 
+
+<img width="491" alt="Screenshot 2022-07-13 at 13 34 35" src="https://user-images.githubusercontent.com/73545574/178734661-02e916bb-67d1-42e3-b58d-b310f8d58eb0.png">
+
+<img width="612" alt="Screenshot 2022-07-13 at 13 29 10" src="https://user-images.githubusercontent.com/73545574/178733670-dcd0b7d5-c369-4815-aba6-b213a493e0f3.png">
+
+
+
 **Future improvements:**
 1. The website is far from finished which I am looking to revisit and styling the page better and making sure it is user friendly.
 2. I would like to look into MongoDB further and make the user be able to do more once they are logged in.
