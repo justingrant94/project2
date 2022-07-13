@@ -12,7 +12,7 @@ A full stack project done in a team with a 1 week deadline.
 
 The third project on the course, we worked in a team and the assignment was to create a full stack website in 1 week. We pondered on a few ideas but we eventually decided to go with the idea of comparing Forbes 100 billionaires with each other and also comparing it to miscellaneous items which also are some of the most expensive items in the world.
 
-Wireframe:
+**Wireframe:**
 
 ![Screenshot 2022-07-05 at 14 51 55](https://user-images.githubusercontent.com/73545574/178273703-0b4e7629-7bc8-42df-9043-8c7d9d99ede1.png)
 
